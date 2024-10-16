@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/game/upgrade_selection/upgrade_selection_big.gd" id="1_t2kik"]
+[ext_resource type="PackedScene" path="res://src/game/upgrade_selection/UC_UpgradeSelectionEntryBig.tscn" id="2_de8kh"]
+
+[node name="UpgradeSelection" type="MarginContainer"]
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+script = ExtResource("1_t2kik")
+
+[node name="bg" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(672, 533)
+layout_mode = 2
+
+[node name="EmptyContainer" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "No Upgrades available"
+
+[node name="UpgradeContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Entry1" parent="UpgradeContainer" instance=ExtResource("2_de8kh")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Entry2" parent="UpgradeContainer" instance=ExtResource("2_de8kh")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+index = 2
+
+[node name="Entry3" parent="UpgradeContainer" instance=ExtResource("2_de8kh")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+index = 3

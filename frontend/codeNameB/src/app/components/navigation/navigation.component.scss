@@ -1,0 +1,142 @@
+@import "../../../assets/styles/vars";
+
+nav {
+  display: flex;
+  background: rgb(16, 3, 21);
+  background: linear-gradient(
+    90deg,
+    rgba(16, 3, 21, 1) 0%,
+    rgba(73, 14, 96, 1) 75%,
+    rgba(115, 20, 152, 1) 100%
+  );
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 $space-xs;
+  height: 6rem;
+
+  color: $white;
+
+  .navigation {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+
+    ul.nav-list {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      gap: $space-s;
+      font-size: $defaultFontSize;
+
+      @media screen and (max-width: $mobile) {
+        font-size: 1.5em;
+      }
+
+      li {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+
+        a,
+        a:active,
+        a:focus,
+        a:visited {
+          color: $white;
+
+          &.active {
+            color: $secondaryColor;
+          }
+        }
+
+        img {
+          width: 20px;
+          height: auto;
+        }
+      }
+
+      @media screen and (max-width: $mobile) {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: $space-xs;
+        padding: $space-s;
+        position: fixed;
+        top: 0;
+        right: -100px;
+        height: 100vh;
+        background-color: $background;
+        border-left: 2px solid $white;
+        width: 60vw;
+        z-index: 2;
+
+        &.open {
+          display: flex;
+          right: 0;
+        }
+      }
+    }
+  }
+
+  .background-close {
+    opacity: 0;
+    pointer-events: none;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 1;
+    transition: opacity 0.5s ease;
+
+    &.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    @media screen and (min-width: $mobile) {
+      opacity: 0 !important;
+    }
+  }
+
+  h1 {
+    text-decoration-color: $secondaryColor;
+    margin: 0;
+  }
+
+  button {
+    display: none;
+    background: none;
+    border: none;
+
+    @media screen and (max-width: $mobile) {
+      &#open {
+        display: block !important;
+      }
+
+      &#close {
+        display: grid !important;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        padding: 0;
+        z-index: 3;
+        background-color: $primaryColor;
+        border-top-right-radius: 12px;
+        border-bottom-right-radius: 12px;
+        height: 50px;
+
+        img {
+          padding: 0;
+        }
+      }
+    }
+  }
+}

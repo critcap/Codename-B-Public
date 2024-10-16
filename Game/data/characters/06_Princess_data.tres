@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="PlayerCharacterData" load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/modifier_data.gd" id="1_qrm43"]
+[ext_resource type="Script" path="res://src/core/resources/data_characters.gd" id="2_grxvk"]
+[ext_resource type="Resource" path="res://data/weapons/WEAPON07_Icebolt1_data.tres" id="2_in0o1"]
+
+[sub_resource type="Resource" id="Resource_8f53c"]
+script = ExtResource("1_qrm43")
+type = 3
+mod = 0
+value = -50.0
+is_percentage = false
+
+[sub_resource type="Resource" id="Resource_1wa0y"]
+script = ExtResource("1_qrm43")
+type = 4
+mod = 1
+value = 8.0
+is_percentage = false
+
+[sub_resource type="Resource" id="Resource_3ema2"]
+script = ExtResource("1_qrm43")
+type = 1
+mod = 1
+value = -2.0
+is_percentage = false
+
+[sub_resource type="Resource" id="Resource_7uhdx"]
+script = ExtResource("1_qrm43")
+type = 13
+mod = 1
+value = 200.0
+is_percentage = false
+
+[sub_resource type="Resource" id="Resource_k7yv7"]
+script = ExtResource("1_qrm43")
+type = 2
+mod = 1
+value = 25.0
+is_percentage = false
+
+[sub_resource type="Resource" id="Resource_608wd"]
+script = ExtResource("1_qrm43")
+type = 6
+mod = 1
+value = 25.0
+is_percentage = false
+
+[resource]
+script = ExtResource("2_grxvk")
+name = "Princess"
+id = 6
+full_name = "Astrid"
+description = "Astrid, die eisige Prinzessin aus dem nördlichen Immerfrost, hat nicht nur einen durchdringenden und zersplitternden Blick. Ihre kühle Ausstrahlung und mächtigen Kräfte machen sie zu einer furchteinflößenden Herrscherin."
+price = 2000
+thumbnail = "res://src/art/thumbnails/characters/T_PrincessPortrait.png"
+base_health = 10
+scene = "res://src/player/06_princess/PC_Princess.tscn"
+base_weapon = ExtResource("2_in0o1")
+base_modifiers = Array[ExtResource("1_qrm43")]([SubResource("Resource_8f53c"), SubResource("Resource_1wa0y"), SubResource("Resource_3ema2"), SubResource("Resource_7uhdx"), SubResource("Resource_k7yv7"), SubResource("Resource_608wd")])
+max_count = 1

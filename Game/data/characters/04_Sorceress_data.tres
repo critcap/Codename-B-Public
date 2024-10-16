@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="PlayerCharacterData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/modifier_data.gd" id="1_5nvi5"]
+[ext_resource type="Resource" path="res://data/weapons/WEAPON04_Thunderbolt1_data.tres" id="2_ghjf0"]
+[ext_resource type="Script" path="res://src/core/resources/data_characters.gd" id="2_stq2q"]
+
+[sub_resource type="Resource" id="Resource_gxei3"]
+script = ExtResource("1_5nvi5")
+type = 2
+mod = 0
+value = 20.0
+is_percentage = false
+
+[sub_resource type="Resource" id="Resource_h67n6"]
+script = ExtResource("1_5nvi5")
+type = 10
+mod = 1
+value = 10.0
+is_percentage = true
+
+[resource]
+script = ExtResource("2_stq2q")
+name = "Sorceress"
+id = 4
+full_name = "Monara"
+description = "Monara, eine junge Feuermagierin, kann trotz ihres jungen Alters explosive Zaubersprüche sprechen. Ihre mächtigen Feuerzauber machen sie zu einer beeindruckenden und gefährlichen Abenteurerin."
+price = 2000
+thumbnail = "res://src/art/thumbnails/characters/T_SorceressPortrait.png"
+base_health = 10
+scene = "res://src/player/04_sorceress/PC_Sorceress.tscn"
+base_weapon = ExtResource("2_ghjf0")
+base_modifiers = Array[ExtResource("1_5nvi5")]([SubResource("Resource_gxei3"), SubResource("Resource_h67n6")])
+max_count = 1

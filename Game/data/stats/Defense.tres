@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="StatData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/stat_data.gd" id="1_uxaps"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gn8eg"]
+load_path = "res://.godot/imported/T_Icons.png-c4904b97a3031a24c6ca8c700cb1fa71.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pd2n4"]
+atlas = SubResource("CompressedTexture2D_gn8eg")
+region = Rect2(96, 0, 48, 48)
+
+[resource]
+script = ExtResource("1_uxaps")
+_id = 3
+_name = &"Defense"
+_short_name = &"DEF"
+_description = "Reduced Damage taken"
+_hidden = false
+_negativ_is_good = false
+_value_cap = 90.0
+_icon = SubResource("AtlasTexture_pd2n4")

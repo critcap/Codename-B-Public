@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MapData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/map_data.gd" id="1_ocvv2"]
+[ext_resource type="Texture2D" path="res://src/art/thumbnails/maps/T_Field.png" id="2_chkbw"]
+[ext_resource type="Resource" path="res://data/spawns/SpawnTable.tres" id="2_dim7r"]
+
+[resource]
+script = ExtResource("1_ocvv2")
+id = 1
+name = ""
+thumbnail = ExtResource("2_chkbw")
+scene = "res://src/maps/Map_01.tscn"
+spawn_table = ExtResource("2_dim7r")

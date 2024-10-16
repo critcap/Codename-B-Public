@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/data_weapons.gd" id="1_dxvl8"]
+[ext_resource type="Texture2D" path="res://src/weapons/ATL_WEapons.tres" id="1_seaye"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qgl0"]
+atlas = ExtResource("1_seaye")
+region = Rect2(48, 48, 48, 48)
+
+[resource]
+script = ExtResource("1_dxvl8")
+id = 5
+name = "thunderbolt"
+full_name = "Donnerblitz"
+description = "Ein kräftiger Donnerblitz, der mehrere Feinde trifft und erheblichen Schaden zufügt."
+price = 0
+icon = SubResource("AtlasTexture_3qgl0")
+level = 2
+max_count = 1
+damage = 4
+targets = 1
+attack_range = 800
+attack_speed = 1.0
+repeat = 0
+delay = 0.0
+count = 1
+pattern = 0
+_deviation = 0
+projectile_speed = 900
+size_multiplier = 1.0
+bounces = 3
+pierce = 0
+terrain_bounce = false
+return_to_player = false
+allow_shotgunning = false
+is_random_dir = false
+is_rotating = false
+rotation_speed = 1.0
+is_fixed = false
+animations = "spark"
+sprite_scale = 4.0
+hitbox_scale = 1.0
+desaturate = false
+color = Color(1, 1, 1, 1)

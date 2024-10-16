@@ -1,0 +1,146 @@
+<section class="game-history">
+  <ul class="games">
+    <li class="game_item">
+      <div>Character</div>
+      <div>Ergebnis</div>
+      <div>Gegner getötet</div>
+      <div>Zeit</div>
+      <div>Level</div>
+      <div>Gold</div>
+      <div class="slim"></div>
+    </li>
+    <li
+      *ngFor="let game of gamesOnPage"
+      class="game_item"
+      (click)="toggleGameDetail(game.id)"
+    >
+      <div>
+        <img
+          class="circle"
+          [alt]="game.gameStartParameters.character.name"
+          [src]="
+            'assets/items'.concat(game.gameStartParameters.character.imageName)
+          "
+        />
+      </div>
+      <div class="game-state">
+        <img
+          alt="Spielergebnis"
+          [src]="game.win ? 'assets/images/win.png' : 'assets/images/lose.png'"
+        />
+      </div>
+      <div>
+        <span>{{ game.defeatedEnemies }}</span>
+      </div>
+      <div>
+        <span>{{ game.surviveTime | toMinutes }}</span>
+      </div>
+      <div>
+        <span>{{ game.levelReached }}</span>
+      </div>
+      <div>
+        <span>{{ game.gold }}</span>
+      </div>
+      <div class="slim">
+        <mat-icon>{{
+          toggledDetails == game.id
+            ? "keyboard_arrow_up"
+            : "keyboard_arrow_down"
+        }}</mat-icon>
+      </div>
+      <div class="details" [ngClass]="{ show: toggledDetails == game.id }">
+        <div class="detail-border"></div>
+        <div class="start-params">
+          <h2>Spielstart Einstellungen</h2>
+          <div class="params">
+            <div class="defaults">
+              <div class="character">
+                <p>{{ game.gameStartParameters.character.name }}</p>
+                <img
+                  class="circle"
+                  [alt]="game.gameStartParameters.character.name + '_Character'"
+                  [src]="
+                    'assets/items'.concat(
+                      game.gameStartParameters.character.imageName
+                    )
+                  "
+                />
+              </div>
+              <div class="map">
+                <p>{{ game.gameStartParameters.map.name }}</p>
+                <img
+                  [alt]="game.gameStartParameters.map.name + '_Character'"
+                  [src]="
+                    'assets/items'.concat(
+                      game.gameStartParameters.map.imageName
+                    )
+                  "
+                />
+              </div>
+              <div class="difficulty">
+                <p>Schwierigkeit:</p>
+                <p class="name">
+                  <img
+                    class="circle"
+                    [alt]="game.gameStartParameters.difficulty.name"
+                    [src]="
+                      'assets/difficulties/'.concat(
+                        game.gameStartParameters.difficulty.identifier + '.webp'
+                      )
+                    "
+                  />
+                </p>
+              </div>
+            </div>
+            <div class="items-container">
+              <h2>Items & Upgrades im Inventar</h2>
+              <div class="items">
+                <div
+                  class="item"
+                  *ngFor="
+                    let item of getFilteredItems(game.gameStartParameters.items)
+                  "
+                >
+                  <img
+                    class="img"
+                    [alt]="item.name"
+                    [src]="'assets/items'.concat(item.imageName)"
+                  />
+                  <span class="amount">{{
+                    getAmountOfItem(item.id, game.gameStartParameters.items)
+                  }}</span>
+                </div>
+              </div>
+            </div>
+            <div class="items-container">
+              <h2>Benutzte Items</h2>
+              <div class="items">
+                <div
+                  class="item"
+                  *ngFor="let item of getFilteredItems(game.itemsUsed)"
+                >
+                  <img
+                    class="img"
+                    [alt]="item.name"
+                    [src]="'assets/items'.concat(item.imageName)"
+                  />
+                  <span class="amount">{{
+                    getAmountOfItem(item.id, game.itemsUsed)
+                  }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <div class="pager" *ngIf="availablePages > 1">
+    <button [ngClass]="{ active: page != 1 }" (click)="previousPage()">
+      Vorherige Seite
+    </button>
+    <button [ngClass]="{ active: page != availablePages }" (click)="nextPage()">
+      Nächste Seite
+    </button>
+  </div>
+</section>

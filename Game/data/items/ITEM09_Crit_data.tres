@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/data_items.gd" id="1_0o68q"]
+[ext_resource type="Script" path="res://src/core/resources/modifier_data.gd" id="1_iriiv"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gn8eg"]
+load_path = "res://.godot/imported/T_Icons.png-c4904b97a3031a24c6ca8c700cb1fa71.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgvu3"]
+atlas = SubResource("CompressedTexture2D_gn8eg")
+region = Rect2(384, 0, 48, 48)
+
+[sub_resource type="Resource" id="Resource_5ng5y"]
+script = ExtResource("1_iriiv")
+type = 10
+mod = 1
+value = 2.5
+is_percentage = true
+
+[resource]
+script = ExtResource("1_0o68q")
+id = 9
+name = &"crit"
+full_name = "Zerstörung"
+description = "Erhöht die kritische Trefferchance um {val}%"
+rarity = 0
+price = 100
+max_count = 6
+icon = SubResource("AtlasTexture_dgvu3")
+modifiers = Array[ExtResource("1_iriiv")]([SubResource("Resource_5ng5y")])

@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/game/upgrade_selection/upgrade_selection.gd" id="1_3jcl1"]
+[ext_resource type="PackedScene" path="res://src/game/upgrade_selection/UC_UpgradeSelectionEntry.tscn" id="2_vpdiw"]
+
+[node name="UpgradeSelection" type="MarginContainer"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -117.0
+offset_right = 330.0
+offset_bottom = 118.0
+grow_vertical = 2
+size_flags_horizontal = 0
+script = ExtResource("1_3jcl1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Entry1" parent="VBoxContainer" instance=ExtResource("2_vpdiw")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Entry2" parent="VBoxContainer" instance=ExtResource("2_vpdiw")]
+unique_name_in_owner = true
+layout_mode = 2
+index = 2
+
+[node name="Entry3" parent="VBoxContainer" instance=ExtResource("2_vpdiw")]
+unique_name_in_owner = true
+layout_mode = 2
+index = 3

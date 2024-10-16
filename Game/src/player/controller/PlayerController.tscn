@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/player/controller/character_controller.gd" id="1_rfkxn"]
+[ext_resource type="Script" path="res://src/player/controller/states/character_idle_state.gd" id="2_31tg6"]
+[ext_resource type="Script" path="res://src/player/controller/states/character_move_state.gd" id="3_kvgw6"]
+
+[node name="CharacterController" type="Node"]
+script = ExtResource("1_rfkxn")
+
+[node name="CharacterIdleState" type="Node" parent="." node_paths=PackedStringArray("move_state")]
+script = ExtResource("2_31tg6")
+move_state = NodePath("../CharacterMoveState")
+
+[node name="CharacterMoveState" type="Node" parent="." node_paths=PackedStringArray("idle_state")]
+script = ExtResource("3_kvgw6")
+idle_state = NodePath("../CharacterIdleState")

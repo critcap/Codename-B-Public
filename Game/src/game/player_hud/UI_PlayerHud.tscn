@@ -1,0 +1,111 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://src/game/player_hud/player_health_bar.gd" id="1_oa35i"]
+[ext_resource type="LabelSettings" path="res://src/game/common/LabelSettings_Medium.tres" id="2_adc1q"]
+[ext_resource type="Script" path="res://src/game/player_hud/player_experience_bar.gd" id="2_iyji1"]
+[ext_resource type="Script" path="res://src/game/player_hud/player_level_display.gd" id="3_ykjfm"]
+
+[node name="MarginContainer" type="MarginContainer"]
+offset_right = 288.0
+offset_bottom = 119.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="HBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(123, 123)
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer3"]
+layout_mode = 2
+
+[node name="HealthBar" type="ProgressBar" parent="HBoxContainer/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+value = 100.0
+show_percentage = false
+script = ExtResource("1_oa35i")
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/MarginContainer3/VBoxContainer/HealthBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer3/VBoxContainer/HealthBar/CenterContainer"]
+layout_mode = 2
+
+[node name="CurrentHpLabel" type="Label" parent="HBoxContainer/MarginContainer3/VBoxContainer/HealthBar/CenterContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "100"
+label_settings = ExtResource("2_adc1q")
+horizontal_alignment = 1
+
+[node name="Spacer" type="Label" parent="HBoxContainer/MarginContainer3/VBoxContainer/HealthBar/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "|"
+label_settings = ExtResource("2_adc1q")
+horizontal_alignment = 1
+
+[node name="MaxHpLabel" type="Label" parent="HBoxContainer/MarginContainer3/VBoxContainer/HealthBar/CenterContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "100"
+label_settings = ExtResource("2_adc1q")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/MarginContainer3/VBoxContainer/HBoxContainer"]
+layout_direction = 2
+layout_mode = 2
+script = ExtResource("3_ykjfm")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer3/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer3/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="LevelPrefix" type="Label" parent="HBoxContainer/MarginContainer3/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Lv."
+label_settings = ExtResource("2_adc1q")
+
+[node name="PlayerLevelLabel" type="Label" parent="HBoxContainer/MarginContainer3/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_adc1q")
+horizontal_alignment = 1
+
+[node name="Experiencebar" type="ProgressBar" parent="HBoxContainer/MarginContainer3/VBoxContainer/HBoxContainer"]
+modulate = Color(0.63, 0.5733, 0.3465, 1)
+custom_minimum_size = Vector2(0, 33)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 100.0
+allow_greater = true
+show_percentage = false
+script = ExtResource("2_iyji1")

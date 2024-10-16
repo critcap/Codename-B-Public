@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/data_enemies.gd" id="1_i1b8b"]
+[ext_resource type="Resource" path="res://src/enemies/common/EnemyAttack_Charge.tres" id="1_nxoxp"]
+
+[resource]
+script = ExtResource("1_i1b8b")
+id = 3.0
+code = "charger"
+name = "Scorpion"
+description = ""
+health = 4.0
+health_per_wave = 2.5
+speed = 400.0
+max_speed = 400.0
+acceleration = 0.0
+damage = 1.0
+damage_per_wave = 0.85
+experience = 1.0
+drop_change = 0.01
+rare_drop = 0.01
+scene = "res://src/enemies/04_scorpion/EC_Scorpion.tscn"
+attack_data = ExtResource("1_nxoxp")
+movement_type = 0

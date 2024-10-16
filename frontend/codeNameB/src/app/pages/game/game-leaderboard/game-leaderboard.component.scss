@@ -1,0 +1,73 @@
+@import "../../../../assets/styles/vars";
+
+.game-leaderboard {
+  padding: $space-m 5%;
+
+  .wrap-center {
+    margin: auto;
+  }
+
+  h2 {
+    color: $white;
+    text-decoration: underline;
+  }
+
+  .leaderboard {
+    display: flex;
+    flex-direction: column;
+    color: $white;
+
+    li {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      background-color: #a3146a;
+      padding: $space-s;
+      border: 2px solid $white;
+      border-top: none;
+
+      &:first-child {
+        border-top: 2px solid $white;
+        padding: $space-xs $space-s;
+      }
+
+      &:nth-child(2n) {
+        background-color: #100436 !important;
+      }
+
+      @media screen and (max-width: 1500px) {
+        div {
+          flex: 0 0 5rem !important;
+        }
+
+        p {
+          font-size: $smallFontSize;
+        }
+      }
+
+      @media screen and (max-width: $mobile) {
+      }
+
+      div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        flex: 0 0 10rem;
+
+        p {
+          margin: 0;
+        }
+
+        button {
+          background: none;
+          border: none;
+          mat-icon {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+@import "../../../assets/styles/vars";
+
+section {
+  display: flex;
+  flex-direction: column;
+  color: $white;
+  padding: $space-s;
+
+  @media screen and (min-width: $mobile) {
+    margin: auto;
+    width: 30rem;
+  }
+
+  h2 {
+    padding-bottom: $space-s;
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(1fr);
+
+    input {
+      border-radius: 6px;
+      padding: 0.25rem;
+    }
+
+    #l_email,
+    #l_password {
+      margin-bottom: 5px;
+    }
+
+    #l_email,
+    #email,
+    #l_password,
+    #password {
+      grid-column: 1;
+    }
+
+    #l_email {
+      grid-row: 1;
+    }
+
+    #email {
+      grid-row: 2;
+      margin-bottom: $space-s;
+    }
+
+    #l_password {
+      grid-row: 3;
+    }
+
+    #password {
+      grid-row: 4;
+    }
+
+    #submit {
+      padding: 0.5rem;
+      border: none;
+      border-radius: 12px;
+      color: $white;
+      background-color: $primaryColor;
+      margin-top: $space-s;
+    }
+  }
+
+  #forgot-password {
+    margin-top: $space-s;
+    text-align: center;
+    color: $white;
+  }
+}

@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="PackedScene" path="res://src/weapons/WeaponBase.tscn" id="1_j4nj8"]
+[ext_resource type="Texture2D" path="res://_developer/pascal/assets/SPR_Revolver.png" id="2_hpo5o"]
+[ext_resource type="Script" path="res://src/core/resources/data_weapons.gd" id="2_kofbr"]
+[ext_resource type="Script" path="res://src/core/components/projectile_emitter.gd" id="3_4t8g1"]
+
+[sub_resource type="Resource" id="Resource_blql8"]
+script = ExtResource("2_kofbr")
+id = 0
+name = "Nutte"
+full_name = "Nutte"
+description = "NUtte"
+price = 0
+level = 1
+max_count = 1
+damage = 223
+targets = 2
+attack_range = 999
+attack_speed = 1.0
+repeat = 0
+delay = 0.0
+count = 0
+pattern = 0
+_deviation = 0
+projectile_speed = 800
+size_multiplier = 1.0
+bounces = 0
+pierce = 0
+terrain_bounce = false
+return_to_player = false
+allow_shotgunning = false
+is_random_dir = false
+is_rotating = false
+rotation_speed = 1.0
+is_fixed = false
+animations = "default"
+sprite_scale = 1.0
+hitbox_scale = 1.0
+desaturate = false
+color = Color(1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y1gmp"]
+radius = 843.534
+
+[node name="WeaponBase" node_paths=PackedStringArray("aim_range", "audio_player") instance=ExtResource("1_j4nj8")]
+data = SubResource("Resource_blql8")
+aim_range = NodePath("Range")
+audio_player = NodePath("Sfx")
+
+[node name="Range" parent="." index="0"]
+shape = SubResource("CircleShape2D_y1gmp")
+
+[node name="Sprite2D" type="Sprite2D" parent="RotationPoint" index="0"]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(16, -6)
+scale = Vector2(0.135071, 0.135071)
+texture = ExtResource("2_hpo5o")
+flip_h = true
+
+[node name="ProjectileEmitter" type="Marker2D" parent="RotationPoint/Sprite2D" index="0"]
+position = Vector2(192.491, 7.40351)
+script = ExtResource("3_4t8g1")
+
+[connection signal="shot" from="." to="RotationPoint/Sprite2D/ProjectileEmitter" method="_on_weapon_base_shot"]

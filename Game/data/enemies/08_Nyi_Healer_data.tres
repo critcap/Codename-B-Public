@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/data_enemies.gd" id="1_okn3e"]
+[ext_resource type="Resource" path="res://src/enemies/common/EnemyAttack_Melee.tres" id="1_pchvc"]
+
+[resource]
+script = ExtResource("1_okn3e")
+id = 8.0
+code = "healer"
+name = "NYI_Healer"
+description = ""
+health = 10.0
+health_per_wave = 8.0
+speed = 400.0
+max_speed = 400.0
+acceleration = 0.0
+damage = 1.0
+damage_per_wave = 0.85
+experience = 2.0
+drop_change = 0.03
+rare_drop = 0.03
+scene = "res://src/enemies/09_nyi_healer/EC_Nyi_Healer.tscn"
+attack_data = ExtResource("1_pchvc")
+movement_type = 0

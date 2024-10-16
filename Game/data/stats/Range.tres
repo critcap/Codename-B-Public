@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="StatData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://src/art/icons/ATL_Icons.tres" id="1_27hfb"]
+[ext_resource type="Script" path="res://src/core/resources/stat_data.gd" id="2_e2ij8"]
+
+[resource]
+script = ExtResource("2_e2ij8")
+_id = 13
+_name = &"Range"
+_short_name = &"RNG"
+_description = "Reichweite der Angriffe"
+_hidden = false
+_negativ_is_good = false
+_value_cap = 1000.0
+_icon = ExtResource("1_27hfb")

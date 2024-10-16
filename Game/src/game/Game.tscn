@@ -1,0 +1,172 @@
+[gd_scene load_steps=28 format=3]
+
+[ext_resource type="Script" path="res://src/core/game/game.gd" id="1_1jp15"]
+[ext_resource type="Script" path="res://src/core/systems/player_system.gd" id="3_a1ja1"]
+[ext_resource type="AudioStream" path="res://_developer/_sound/sfx/SFX_Big Egg collect 1.wav" id="3_qurss"]
+[ext_resource type="Script" path="res://src/core/systems/damage_system.gd" id="3_t7lwh"]
+[ext_resource type="AudioStream" path="res://_developer/_sound/sfx/LevelUp.wav" id="4_82dbb"]
+[ext_resource type="AudioStream" path="res://_developer/_sound/sfx/FGHTImpt_Anime Melee Gore 2.wav" id="4_o7u4l"]
+[ext_resource type="Script" path="res://src/core/systems/victory_system.gd" id="4_qp0rt"]
+[ext_resource type="Script" path="res://src/core/systems/death_system.gd" id="5_scvjq"]
+[ext_resource type="PackedScene" path="res://_developer/william/scenes/enemy_spawner.tscn" id="6_phgf3"]
+[ext_resource type="Script" path="res://src/core/components/projectile_container.gd" id="7_itoyx"]
+[ext_resource type="AudioStream" path="res://_developer/_sound/bgm/BGM_Victory.mp3" id="7_ynbr6"]
+[ext_resource type="AudioStream" path="res://_developer/_sound/bgm/BGM_Gameover.mp3" id="8_m2j4u"]
+[ext_resource type="Script" path="res://src/core/systems/upgrade_system.gd" id="9_f7hee"]
+[ext_resource type="PackedScene" path="res://src/game/player_hud/UI_PlayerHud.tscn" id="10_fvlxy"]
+[ext_resource type="PackedScene" path="res://src/game/pause_menu/UI_PauseMenu.tscn" id="11_nec3m"]
+[ext_resource type="PackedScene" path="res://src/game/player_hud/UI_RoundTimer.tscn" id="12_6lair"]
+[ext_resource type="PackedScene" path="res://src/game/gameover_screen/UI_GameoverScreen.tscn" id="12_jksjj"]
+[ext_resource type="PackedScene" path="res://src/pickups/pickup.tscn" id="12_qlrp7"]
+[ext_resource type="PackedScene" path="res://src/player/components/CameraRig.tscn" id="13_j3l74"]
+[ext_resource type="PackedScene" path="res://src/game/upgrade_selection/UI_UpgradeSelection.tscn" id="14_e2gyk"]
+[ext_resource type="PackedScene" path="res://src/game/upgrade_selection/UI_PendingUpgrades.tscn" id="16_08uu4"]
+[ext_resource type="AudioStream" path="res://_developer/_sound/sfx/UpgradeSelected.wav" id="16_n263q"]
+[ext_resource type="PackedScene" path="res://src/weapons/BulletBase.tscn" id="16_sjnq8"]
+[ext_resource type="PackedScene" path="res://src/game/settings_menu/UI_SettingsMenu.tscn" id="18_w4hkh"]
+[ext_resource type="LabelSettings" path="res://src/game/common/LabelSettings_Medium_Bold.tres" id="19_no0qb"]
+[ext_resource type="AudioStream" path="res://_developer/_sound/bgm/BGM_Fight.wav" id="22_lyyqo"]
+
+[sub_resource type="GDScript" id="GDScript_3qvyp"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	GameService.get_context().is_manual_aim.bind(self,&\"visible\")
+"
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_1jp15")
+
+[node name="PauseContainer" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="PlayerSystem" type="Node" parent="PauseContainer" node_paths=PackedStringArray("health_pickup_audio_player", "level_up_audio_player")]
+script = ExtResource("3_a1ja1")
+health_pickup_audio_player = NodePath("SfxHealthPickup")
+level_up_audio_player = NodePath("SfxLevelUp")
+
+[node name="SfxHealthPickup" type="AudioStreamPlayer" parent="PauseContainer/PlayerSystem"]
+stream = ExtResource("3_qurss")
+bus = &"Sfx"
+
+[node name="SfxLevelUp" type="AudioStreamPlayer" parent="PauseContainer/PlayerSystem"]
+stream = ExtResource("4_82dbb")
+bus = &"Sfx"
+
+[node name="DamageSystem" type="Node" parent="PauseContainer" node_paths=PackedStringArray("audio_player")]
+script = ExtResource("3_t7lwh")
+audio_player = NodePath("SfxPlayerDamageTaken")
+
+[node name="SfxPlayerDamageTaken" type="AudioStreamPlayer" parent="PauseContainer/DamageSystem"]
+stream = ExtResource("4_o7u4l")
+bus = &"Sfx"
+
+[node name="VictorySystem" type="Node" parent="PauseContainer" node_paths=PackedStringArray("victory_music_player", "defeat_music_player", "bg_music_player")]
+script = ExtResource("4_qp0rt")
+victory_music_player = NodePath("VictorySound")
+defeat_music_player = NodePath("DefeatSound")
+bg_music_player = NodePath("../../BgMusic")
+
+[node name="VictorySound" type="AudioStreamPlayer" parent="PauseContainer/VictorySystem"]
+stream = ExtResource("7_ynbr6")
+bus = &"Music"
+
+[node name="DefeatSound" type="AudioStreamPlayer" parent="PauseContainer/VictorySystem"]
+stream = ExtResource("8_m2j4u")
+bus = &"Music"
+
+[node name="DeathSystem" type="Node" parent="PauseContainer"]
+script = ExtResource("5_scvjq")
+
+[node name="EnemySystem" parent="PauseContainer" node_paths=PackedStringArray("container") instance=ExtResource("6_phgf3")]
+container = NodePath("../CanvasGroup")
+DebugDrop = ExtResource("12_qlrp7")
+
+[node name="UpgradeSystem" type="Node" parent="PauseContainer" node_paths=PackedStringArray("upgrade_selected_audio_player")]
+script = ExtResource("9_f7hee")
+upgrade_selected_audio_player = NodePath("SfxUpgradeSelected")
+
+[node name="SfxUpgradeSelected" type="AudioStreamPlayer" parent="PauseContainer/UpgradeSystem"]
+stream = ExtResource("16_n263q")
+bus = &"Sfx"
+
+[node name="ProjectileContainer" type="Node2D" parent="PauseContainer"]
+script = ExtResource("7_itoyx")
+bullet_scene = ExtResource("16_sjnq8")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="PauseContainer"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="CameraRig" parent="PauseContainer" instance=ExtResource("13_j3l74")]
+unique_name_in_owner = true
+
+[node name="GUI" type="CanvasLayer" parent="PauseContainer"]
+
+[node name="RoundTimerDisplay" parent="PauseContainer/GUI" instance=ExtResource("12_6lair")]
+
+[node name="Label" type="Label" parent="PauseContainer/GUI/RoundTimerDisplay"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.5
+offset_top = 131.0
+offset_right = 154.5
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.28)
+text = "MANUAL_AIM_ACTIVE"
+label_settings = ExtResource("19_no0qb")
+horizontal_alignment = 1
+script = SubResource("GDScript_3qvyp")
+
+[node name="PlayerHud" parent="PauseContainer/GUI" instance=ExtResource("10_fvlxy")]
+
+[node name="UpgradeSelection" parent="PauseContainer/GUI" node_paths=PackedStringArray("upgrade_system") instance=ExtResource("14_e2gyk")]
+visible = false
+offset_top = -123.0
+offset_right = 360.0
+offset_bottom = 125.0
+theme_override_constants/margin_left = 30
+upgrade_system = NodePath("../../UpgradeSystem")
+
+[node name="PendingUpgrades" parent="PauseContainer/GUI" node_paths=PackedStringArray("_upgrade_system") instance=ExtResource("16_08uu4")]
+visible = false
+offset_top = -67.0
+offset_right = 127.0
+offset_bottom = 0.0
+_upgrade_system = NodePath("../../UpgradeSystem")
+
+[node name="MenuLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 2
+
+[node name="PauseMenu" parent="MenuLayer" instance=ExtResource("11_nec3m")]
+visible = false
+
+[node name="UpgradeSelection" parent="MenuLayer/PauseMenu/Body/HBoxContainer" index="1" node_paths=PackedStringArray("upgrade_system")]
+upgrade_system = NodePath("../../../../../PauseContainer/UpgradeSystem")
+
+[node name="GameoverScreen" parent="MenuLayer" instance=ExtResource("12_jksjj")]
+visible = false
+
+[node name="SettingsMenu" parent="MenuLayer" node_paths=PackedStringArray("pause_menu") instance=ExtResource("18_w4hkh")]
+visible = false
+pause_menu = NodePath("../PauseMenu")
+
+[node name="BgMusic" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("22_lyyqo")
+autoplay = true
+bus = &"Music"
+
+[connection signal="gameover_processed" from="MenuLayer/GameoverScreen" to="." method="_on_death_screen_gameover_processed"]
+
+[editable path="MenuLayer/PauseMenu"]

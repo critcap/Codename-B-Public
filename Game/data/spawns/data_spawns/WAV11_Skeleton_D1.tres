@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SpawnSequence" load_steps=4 format=3]
+
+[ext_resource type="Resource" path="res://data/enemies/00_Skeleton_data.tres" id="1_g30oe"]
+[ext_resource type="Resource" path="res://src/enemies/patterns/SpawnPattern_Range100.tres" id="2_qxj8m"]
+[ext_resource type="Script" path="res://src/core/resources/data_spawns.gd" id="2_ryws2"]
+
+[resource]
+script = ExtResource("2_ryws2")
+entity = ExtResource("1_g30oe")
+entity_name = "Skeleton"
+type = 0
+wave = 11
+difficulty = 1
+pattern = ExtResource("2_qxj8m")
+delay = 3
+interval = 6
+interval_min = 1
+count = 3
+increase = 1
+is_enabled = true

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SpawnWave" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/data_waves.gd" id="1_oh0cl"]
+[ext_resource type="Resource" path="res://data/spawns/data_spawns/WAV1_Skeleton_D1.tres" id="2_6enr0"]
+
+[resource]
+script = ExtResource("1_oh0cl")
+duration = 20
+transition = 5
+sequences = Array[Resource("res://src/core/resources/data_spawns.gd")]([ExtResource("2_6enr0")])
+is_enabled = true

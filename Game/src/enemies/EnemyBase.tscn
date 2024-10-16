@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://src/core/entities/enemy_character.gd" id="1_8tmpy"]
+[ext_resource type="Script" path="res://src/core/components/health.gd" id="3_6miec"]
+[ext_resource type="AudioStream" path="res://_developer/_sound/sfx/Enemy_Hurt.wav" id="6_j5x67"]
+[ext_resource type="PackedScene" path="res://src/enemies/controller/behaviors/Behavior_FollowPlayer.tscn" id="6_n8260"]
+[ext_resource type="SpriteFrames" path="res://src/weapons/SPR_Animations.tres" id="7_eao8w"]
+[ext_resource type="Script" path="res://src/core/components/navigation.gd" id="7_spu43"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4iygd"]
+radius = 15.0
+
+[node name="EnemyBase2" type="CharacterBody2D" node_paths=PackedStringArray("collision") groups=["Enemy", "Entities"]]
+collision_layer = 0
+collision_mask = 2
+motion_mode = 1
+slide_on_ceiling = false
+wall_min_slide_angle = 0.0
+script = ExtResource("1_8tmpy")
+collision = NodePath("Collision")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -15)
+shape = SubResource("CircleShape2D_4iygd")
+
+[node name="Health" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_6miec")
+
+[node name="Navigation" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("7_spu43")
+deadzone = 22
+
+[node name="EnemyController" parent="." node_paths=PackedStringArray("start_state", "character") instance=ExtResource("6_n8260")]
+start_state = NodePath("EnemyIdleState")
+character = NodePath("..")
+
+[node name="SfxDeath" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_j5x67")
+volume_db = -3.325
+bus = &"Sfx"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("7_eao8w")
+animation = &"portal"

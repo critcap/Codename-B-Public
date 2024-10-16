@@ -1,0 +1,338 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://editor/tool_position_generator.gd" id="1_kvncy"]
+[ext_resource type="PackedScene" path="res://src/maps/Map_01.tscn" id="1_u6w5t"]
+[ext_resource type="Resource" path="res://src/enemies/patterns/SpawnPattern_Edge.tres" id="2_gv5py"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fckpe"]
+radius = 250.0
+
+[node name="ToolPositionGenerator" type="Node" node_paths=PackedStringArray("map")]
+script = ExtResource("1_kvncy")
+map = NodePath("Map")
+spread = 75
+get_max_points = true
+pattern = ExtResource("2_gv5py")
+
+[node name="Map" parent="." instance=ExtResource("1_u6w5t")]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Shape" type="CollisionShape2D" parent="Area2D"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_fckpe")
+
+[node name="Offsets" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="@Marker2D@21834" type="Marker2D" parent="Offsets"]
+position = Vector2(-935, -585)
+
+[node name="@Marker2D@21835" type="Marker2D" parent="Offsets"]
+position = Vector2(935, 525)
+
+[node name="@Marker2D@21836" type="Marker2D" parent="Offsets"]
+position = Vector2(-875, -585)
+
+[node name="@Marker2D@21837" type="Marker2D" parent="Offsets"]
+position = Vector2(875, 585)
+
+[node name="@Marker2D@21838" type="Marker2D" parent="Offsets"]
+position = Vector2(-815, -585)
+
+[node name="@Marker2D@21839" type="Marker2D" parent="Offsets"]
+position = Vector2(815, 525)
+
+[node name="@Marker2D@21840" type="Marker2D" parent="Offsets"]
+position = Vector2(-755, -585)
+
+[node name="@Marker2D@21841" type="Marker2D" parent="Offsets"]
+position = Vector2(755, 585)
+
+[node name="@Marker2D@21842" type="Marker2D" parent="Offsets"]
+position = Vector2(-695, -585)
+
+[node name="@Marker2D@21843" type="Marker2D" parent="Offsets"]
+position = Vector2(695, 525)
+
+[node name="@Marker2D@21844" type="Marker2D" parent="Offsets"]
+position = Vector2(-635, -585)
+
+[node name="@Marker2D@21845" type="Marker2D" parent="Offsets"]
+position = Vector2(635, 555)
+
+[node name="@Marker2D@21846" type="Marker2D" parent="Offsets"]
+position = Vector2(-575, -585)
+
+[node name="@Marker2D@21847" type="Marker2D" parent="Offsets"]
+position = Vector2(575, 525)
+
+[node name="@Marker2D@21848" type="Marker2D" parent="Offsets"]
+position = Vector2(-515, -585)
+
+[node name="@Marker2D@21849" type="Marker2D" parent="Offsets"]
+position = Vector2(515, 555)
+
+[node name="@Marker2D@21850" type="Marker2D" parent="Offsets"]
+position = Vector2(-455, -585)
+
+[node name="@Marker2D@21851" type="Marker2D" parent="Offsets"]
+position = Vector2(455, 555)
+
+[node name="@Marker2D@21852" type="Marker2D" parent="Offsets"]
+position = Vector2(-395, -585)
+
+[node name="@Marker2D@21853" type="Marker2D" parent="Offsets"]
+position = Vector2(395, 555)
+
+[node name="@Marker2D@21854" type="Marker2D" parent="Offsets"]
+position = Vector2(-335, -585)
+
+[node name="@Marker2D@21855" type="Marker2D" parent="Offsets"]
+position = Vector2(335, 555)
+
+[node name="@Marker2D@21856" type="Marker2D" parent="Offsets"]
+position = Vector2(-275, -585)
+
+[node name="@Marker2D@21857" type="Marker2D" parent="Offsets"]
+position = Vector2(275, 555)
+
+[node name="@Marker2D@21858" type="Marker2D" parent="Offsets"]
+position = Vector2(-215, -585)
+
+[node name="@Marker2D@21859" type="Marker2D" parent="Offsets"]
+position = Vector2(215, 555)
+
+[node name="@Marker2D@21860" type="Marker2D" parent="Offsets"]
+position = Vector2(-155, -585)
+
+[node name="@Marker2D@21861" type="Marker2D" parent="Offsets"]
+position = Vector2(155, 585)
+
+[node name="@Marker2D@21862" type="Marker2D" parent="Offsets"]
+position = Vector2(-95, -585)
+
+[node name="@Marker2D@21863" type="Marker2D" parent="Offsets"]
+position = Vector2(95, 585)
+
+[node name="@Marker2D@21864" type="Marker2D" parent="Offsets"]
+position = Vector2(-35, -585)
+
+[node name="@Marker2D@21865" type="Marker2D" parent="Offsets"]
+position = Vector2(35, 525)
+
+[node name="@Marker2D@21866" type="Marker2D" parent="Offsets"]
+position = Vector2(25, -585)
+
+[node name="@Marker2D@21867" type="Marker2D" parent="Offsets"]
+position = Vector2(-25, 585)
+
+[node name="@Marker2D@21868" type="Marker2D" parent="Offsets"]
+position = Vector2(85, -585)
+
+[node name="@Marker2D@21869" type="Marker2D" parent="Offsets"]
+position = Vector2(-85, 555)
+
+[node name="@Marker2D@21870" type="Marker2D" parent="Offsets"]
+position = Vector2(145, -585)
+
+[node name="@Marker2D@21871" type="Marker2D" parent="Offsets"]
+position = Vector2(-145, 525)
+
+[node name="@Marker2D@21872" type="Marker2D" parent="Offsets"]
+position = Vector2(205, -585)
+
+[node name="@Marker2D@21873" type="Marker2D" parent="Offsets"]
+position = Vector2(-205, 525)
+
+[node name="@Marker2D@21874" type="Marker2D" parent="Offsets"]
+position = Vector2(265, -585)
+
+[node name="@Marker2D@21875" type="Marker2D" parent="Offsets"]
+position = Vector2(-265, 525)
+
+[node name="@Marker2D@21876" type="Marker2D" parent="Offsets"]
+position = Vector2(325, -585)
+
+[node name="@Marker2D@21877" type="Marker2D" parent="Offsets"]
+position = Vector2(-325, 525)
+
+[node name="@Marker2D@21878" type="Marker2D" parent="Offsets"]
+position = Vector2(385, -585)
+
+[node name="@Marker2D@21879" type="Marker2D" parent="Offsets"]
+position = Vector2(-385, 585)
+
+[node name="@Marker2D@21880" type="Marker2D" parent="Offsets"]
+position = Vector2(445, -585)
+
+[node name="@Marker2D@21881" type="Marker2D" parent="Offsets"]
+position = Vector2(-445, 585)
+
+[node name="@Marker2D@21882" type="Marker2D" parent="Offsets"]
+position = Vector2(505, -585)
+
+[node name="@Marker2D@21883" type="Marker2D" parent="Offsets"]
+position = Vector2(-505, 525)
+
+[node name="@Marker2D@21884" type="Marker2D" parent="Offsets"]
+position = Vector2(565, -585)
+
+[node name="@Marker2D@21885" type="Marker2D" parent="Offsets"]
+position = Vector2(-565, 525)
+
+[node name="@Marker2D@21886" type="Marker2D" parent="Offsets"]
+position = Vector2(625, -585)
+
+[node name="@Marker2D@21887" type="Marker2D" parent="Offsets"]
+position = Vector2(-625, 555)
+
+[node name="@Marker2D@21888" type="Marker2D" parent="Offsets"]
+position = Vector2(685, -585)
+
+[node name="@Marker2D@21889" type="Marker2D" parent="Offsets"]
+position = Vector2(-685, 525)
+
+[node name="@Marker2D@21890" type="Marker2D" parent="Offsets"]
+position = Vector2(745, -585)
+
+[node name="@Marker2D@21891" type="Marker2D" parent="Offsets"]
+position = Vector2(-745, 555)
+
+[node name="@Marker2D@21892" type="Marker2D" parent="Offsets"]
+position = Vector2(805, -585)
+
+[node name="@Marker2D@21893" type="Marker2D" parent="Offsets"]
+position = Vector2(-805, 555)
+
+[node name="@Marker2D@21894" type="Marker2D" parent="Offsets"]
+position = Vector2(865, -585)
+
+[node name="@Marker2D@21895" type="Marker2D" parent="Offsets"]
+position = Vector2(-865, 585)
+
+[node name="@Marker2D@21896" type="Marker2D" parent="Offsets"]
+position = Vector2(925, -585)
+
+[node name="@Marker2D@21897" type="Marker2D" parent="Offsets"]
+position = Vector2(-925, 555)
+
+[node name="@Marker2D@21898" type="Marker2D" parent="Offsets"]
+position = Vector2(-905, -555)
+
+[node name="@Marker2D@21899" type="Marker2D" parent="Offsets"]
+position = Vector2(905, -615)
+
+[node name="@Marker2D@21900" type="Marker2D" parent="Offsets"]
+position = Vector2(-905, -495)
+
+[node name="@Marker2D@21901" type="Marker2D" parent="Offsets"]
+position = Vector2(905, -555)
+
+[node name="@Marker2D@21902" type="Marker2D" parent="Offsets"]
+position = Vector2(-905, -435)
+
+[node name="@Marker2D@21903" type="Marker2D" parent="Offsets"]
+position = Vector2(905, -495)
+
+[node name="@Marker2D@21904" type="Marker2D" parent="Offsets"]
+position = Vector2(-905, -375)
+
+[node name="@Marker2D@21905" type="Marker2D" parent="Offsets"]
+position = Vector2(905, -435)
+
+[node name="@Marker2D@21906" type="Marker2D" parent="Offsets"]
+position = Vector2(-905, -315)
+
+[node name="@Marker2D@21907" type="Marker2D" parent="Offsets"]
+position = Vector2(905, -375)
+
+[node name="@Marker2D@21908" type="Marker2D" parent="Offsets"]
+position = Vector2(-905, -255)
+
+[node name="@Marker2D@21909" type="Marker2D" parent="Offsets"]
+position = Vector2(905, -315)
+
+[node name="@Marker2D@21910" type="Marker2D" parent="Offsets"]
+position = Vector2(-905, -195)
+
+[node name="@Marker2D@21911" type="Marker2D" parent="Offsets"]
+position = Vector2(905, -255)
+
+[node name="@Marker2D@21912" type="Marker2D" parent="Offsets"]
+position = Vector2(-905, -135)
+
+[node name="@Marker2D@21913" type="Marker2D" parent="Offsets"]
+position = Vector2(905, -195)
+
+[node name="@Marker2D@21914" type="Marker2D" parent="Offsets"]
+position = Vector2(-905, -75)
+
+[node name="@Marker2D@21915" type="Marker2D" parent="Offsets"]
+position = Vector2(905, -135)
+
+[node name="@Marker2D@21916" type="Marker2D" parent="Offsets"]
+position = Vector2(-905, -15)
+
+[node name="@Marker2D@21917" type="Marker2D" parent="Offsets"]
+position = Vector2(905, -75)
+
+[node name="@Marker2D@21918" type="Marker2D" parent="Offsets"]
+position = Vector2(-905, 45)
+
+[node name="@Marker2D@21919" type="Marker2D" parent="Offsets"]
+position = Vector2(905, -15)
+
+[node name="@Marker2D@21920" type="Marker2D" parent="Offsets"]
+position = Vector2(-905, 105)
+
+[node name="@Marker2D@21921" type="Marker2D" parent="Offsets"]
+position = Vector2(905, 45)
+
+[node name="@Marker2D@21922" type="Marker2D" parent="Offsets"]
+position = Vector2(-905, 165)
+
+[node name="@Marker2D@21923" type="Marker2D" parent="Offsets"]
+position = Vector2(905, 105)
+
+[node name="@Marker2D@21924" type="Marker2D" parent="Offsets"]
+position = Vector2(-905, 225)
+
+[node name="@Marker2D@21925" type="Marker2D" parent="Offsets"]
+position = Vector2(905, 165)
+
+[node name="@Marker2D@21926" type="Marker2D" parent="Offsets"]
+position = Vector2(-905, 285)
+
+[node name="@Marker2D@21927" type="Marker2D" parent="Offsets"]
+position = Vector2(905, 225)
+
+[node name="@Marker2D@21928" type="Marker2D" parent="Offsets"]
+position = Vector2(-905, 345)
+
+[node name="@Marker2D@21929" type="Marker2D" parent="Offsets"]
+position = Vector2(905, 285)
+
+[node name="@Marker2D@21930" type="Marker2D" parent="Offsets"]
+position = Vector2(-905, 405)
+
+[node name="@Marker2D@21931" type="Marker2D" parent="Offsets"]
+position = Vector2(905, 345)
+
+[node name="@Marker2D@21932" type="Marker2D" parent="Offsets"]
+position = Vector2(-905, 465)
+
+[node name="@Marker2D@21933" type="Marker2D" parent="Offsets"]
+position = Vector2(905, 405)
+
+[node name="@Marker2D@21934" type="Marker2D" parent="Offsets"]
+position = Vector2(-905, 525)
+
+[node name="@Marker2D@21935" type="Marker2D" parent="Offsets"]
+position = Vector2(905, 465)
+
+[node name="@Marker2D@21936" type="Marker2D" parent="Offsets"]
+position = Vector2(-905, 585)
+
+[node name="@Marker2D@21937" type="Marker2D" parent="Offsets"]
+position = Vector2(905, 525)

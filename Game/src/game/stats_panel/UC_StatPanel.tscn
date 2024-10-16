@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/game/stats_panel/stat_panel.gd" id="1_8f26i"]
+[ext_resource type="PackedScene" path="res://src/game/stats_panel/UC_StatPanelEntry.tscn" id="2_kqj7h"]
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -473.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("1_8f26i")
+entry_scene = ExtResource("2_kqj7h")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+
+[node name="Body" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2

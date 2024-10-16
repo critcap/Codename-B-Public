@@ -1,0 +1,102 @@
+<section class="game-leaderboard">
+  <div class="wrap-center">
+    <h2>Leaderboard</h2>
+    <div class="filter"></div>
+    <ul class="leaderboard">
+      <li>
+        <div>
+          <p>Platz</p>
+          <button (click)="setSortingType('place')">
+            @if (sortIdentifier == "place") {
+              <mat-icon>keyboard_arrow_down</mat-icon>
+            } @else {
+              <mat-icon>keyboard_arrow_up</mat-icon>
+            }
+          </button>
+        </div>
+        <div>
+          <p>WIN</p>
+        </div>
+        <div>
+          <p>USER</p>
+          <button (click)="setSortingType('name')">
+            @if (sortIdentifier == "name") {
+              <mat-icon>keyboard_arrow_down</mat-icon>
+            } @else {
+              <mat-icon>keyboard_arrow_up</mat-icon>
+            }
+          </button>
+        </div>
+        <div>
+          <p>SCORE</p>
+        </div>
+        <div>
+          <p>GOLD</p>
+          <button (click)="setSortingType('gold')">
+            @if (sortIdentifier == "gold") {
+              <mat-icon>keyboard_arrow_down</mat-icon>
+            } @else {
+              <mat-icon>keyboard_arrow_up</mat-icon>
+            }
+          </button>
+        </div>
+        <div>
+          <p>ZEIT</p>
+          <button (click)="setSortingType('time')">
+            @if (sortIdentifier == "time") {
+              <mat-icon>keyboard_arrow_down</mat-icon>
+            } @else {
+              <mat-icon>keyboard_arrow_up</mat-icon>
+            }
+          </button>
+        </div>
+        <div>
+          <p>WELLE</p>
+          <button (click)="setSortingType('wave')">
+            @if (sortIdentifier == "wave") {
+              <mat-icon>keyboard_arrow_down</mat-icon>
+            } @else {
+              <mat-icon>keyboard_arrow_up</mat-icon>
+            }
+          </button>
+        </div>
+        <div>
+          <p>KILLS</p>
+          <button (click)="setSortingType('kills')">
+            @if (sortIdentifier == "kills") {
+              <mat-icon>keyboard_arrow_down</mat-icon>
+            } @else {
+              <mat-icon>keyboard_arrow_up</mat-icon>
+            }
+          </button>
+        </div>
+      </li>
+      <li *ngFor="let game of displayedGames">
+        <div>
+          <p>{{ getPlace(game.id) }}</p>
+        </div>
+        <div>
+          <p>{{ game.win }}</p>
+        </div>
+        <div>
+          <p>{{ game.user.username }}</p>
+        </div>
+        <div>
+          <p>{{ game.score }}</p>
+        </div>
+        <div>
+          <p>{{ game.gold }}</p>
+        </div>
+        <div>
+          <p>{{ game.surviveTime | toMinutes }}</p>
+        </div>
+        <div>
+          <p>{{ game.levelReached }}</p>
+        </div>
+        <div>
+          <p>{{ game.defeatedEnemies }}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>

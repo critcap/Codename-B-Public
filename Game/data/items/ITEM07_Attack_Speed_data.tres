@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/data_items.gd" id="1_2cqj6"]
+[ext_resource type="Script" path="res://src/core/resources/modifier_data.gd" id="1_7d22b"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gn8eg"]
+load_path = "res://.godot/imported/T_Icons.png-c4904b97a3031a24c6ca8c700cb1fa71.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qs0fc"]
+atlas = SubResource("CompressedTexture2D_gn8eg")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="Resource" id="Resource_h6hfi"]
+script = ExtResource("1_7d22b")
+type = 5
+mod = 1
+value = 10.0
+is_percentage = true
+
+[resource]
+script = ExtResource("1_2cqj6")
+id = 7
+name = &"attack_speed"
+full_name = "Flinke Finger"
+description = "Erhöht die Angriffsgeschwindigkeit um {val}%"
+rarity = 0
+price = 100
+max_count = 10
+icon = SubResource("AtlasTexture_qs0fc")
+modifiers = Array[ExtResource("1_7d22b")]([SubResource("Resource_h6hfi")])

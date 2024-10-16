@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://src/game/pause_menu/pause_menu.gd" id="1_b1sad"]
+[ext_resource type="PackedScene" path="res://src/shared/user_controls/UC_bg.tscn" id="2_mp5hu"]
+[ext_resource type="LabelSettings" path="res://src/game/common/LabelSetting_Title.tres" id="3_3oh1y"]
+[ext_resource type="PackedScene" path="res://src/game/stats_panel/UC_StatPanel.tscn" id="3_c6ict"]
+[ext_resource type="PackedScene" path="res://src/game/inventory_grid/UI_InventoryGrid.tscn" id="3_cif4p"]
+[ext_resource type="PackedScene" path="res://src/game/upgrade_selection/UI_UpgradeSelectionBig.tscn" id="3_kmqqc"]
+[ext_resource type="Texture2D" path="res://src/art/icons/T_Gear.png" id="7_0fyov"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_b1sad")
+
+[node name="Bg" parent="." instance=ExtResource("2_mp5hu")]
+layout_mode = 1
+mouse_filter = 1
+
+[node name="Title" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -305.5
+offset_right = 305.5
+offset_bottom = 137.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "PAUSE_TITLE"
+label_settings = ExtResource("3_3oh1y")
+horizontal_alignment = 1
+
+[node name="Body" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.222222
+anchor_right = 1.0
+anchor_bottom = 0.858889
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Body"]
+custom_minimum_size = Vector2(0, 533)
+layout_mode = 2
+
+[node name="Inventory" type="MarginContainer" parent="Body/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+
+[node name="InventoryGrid" parent="Body/HBoxContainer/Inventory" instance=ExtResource("3_cif4p")]
+layout_mode = 2
+
+[node name="UpgradeSelection" parent="Body/HBoxContainer" instance=ExtResource("3_kmqqc")]
+layout_mode = 2
+
+[node name="Stats" parent="Body/HBoxContainer" instance=ExtResource("3_c6ict")]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="SettingsButton" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.95
+anchor_top = 0.0177778
+anchor_right = 0.99
+anchor_bottom = 0.0888889
+icon = ExtResource("7_0fyov")
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="EndButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.015
+anchor_top = 0.0266667
+anchor_right = 0.1
+anchor_bottom = 0.0711111
+text = "END_GAME"
+metadata/_edit_use_anchors_ = true
+
+[node name="ContinueButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4475
+anchor_top = 0.858889
+anchor_right = 0.5375
+anchor_bottom = 0.901111
+text = "CONTINUE_GAME"
+metadata/_edit_use_anchors_ = true

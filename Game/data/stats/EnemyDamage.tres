@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="StatData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://src/shared/T_Icon.png" id="1_heawk"]
+[ext_resource type="Script" path="res://src/core/resources/stat_data.gd" id="1_l2s7h"]
+
+[resource]
+script = ExtResource("1_l2s7h")
+_id = 8
+_name = &"Damage"
+_short_name = &"EDMG"
+_description = "Damage dealt by enemies"
+_hidden = true
+_negativ_is_good = true
+_value_cap = 0.0
+_icon = ExtResource("1_heawk")

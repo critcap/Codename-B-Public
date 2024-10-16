@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3]
+
+[ext_resource type="Texture2D" path="res://src/weapons/ATL_WEapons.tres" id="1_njprb"]
+[ext_resource type="Script" path="res://src/core/resources/data_weapons.gd" id="1_y50nd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dseq6"]
+atlas = ExtResource("1_njprb")
+region = Rect2(144, 48, 48, 48)
+
+[resource]
+script = ExtResource("1_y50nd")
+id = 1
+name = "fireball"
+full_name = "Feuerball"
+description = "Ein kleiner Feuerball, der deine Feinde verbrennt und einen geringen Schaden verursacht."
+price = 200
+icon = SubResource("AtlasTexture_dseq6")
+level = 1
+max_count = 1
+damage = 10
+targets = 1
+attack_range = 600
+attack_speed = 1.1
+repeat = 0
+delay = 0.0
+count = 0
+pattern = 0
+_deviation = 1
+projectile_speed = 650
+size_multiplier = 1.0
+bounces = 0
+pierce = 0
+terrain_bounce = false
+return_to_player = false
+allow_shotgunning = false
+is_random_dir = false
+is_rotating = false
+rotation_speed = 1.0
+is_fixed = false
+animations = "default"
+sprite_scale = 1.0
+hitbox_scale = 1.0
+desaturate = false
+color = Color(1, 1, 1, 1)

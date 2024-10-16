@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/data_weapons.gd" id="1_4ffj0"]
+[ext_resource type="Texture2D" path="res://src/weapons/ATL_WEapons.tres" id="1_pk84d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6s8lm"]
+atlas = ExtResource("1_pk84d")
+region = Rect2(240, 96, 48, 48)
+
+[resource]
+script = ExtResource("1_4ffj0")
+id = 36
+name = "lighting_strike"
+full_name = "Blitzschlag"
+description = "Ein mächtiger Blitzschlag, der eine Kettenreaktion auslöst und maximalen Schaden anrichtet."
+price = 0
+icon = SubResource("AtlasTexture_6s8lm")
+level = 3
+max_count = 1
+damage = 21
+targets = 1
+attack_range = 600
+attack_speed = 1.5
+repeat = 0
+delay = 1.0
+count = 8
+pattern = 0
+_deviation = 0
+projectile_speed = 800
+size_multiplier = 0.5
+bounces = 0
+pierce = 2
+terrain_bounce = true
+return_to_player = true
+allow_shotgunning = false
+is_random_dir = false
+is_rotating = false
+rotation_speed = 1.0
+is_fixed = false
+animations = "spark"
+sprite_scale = 4.0
+hitbox_scale = 1.0
+desaturate = false
+color = Color(1, 1, 1, 1)

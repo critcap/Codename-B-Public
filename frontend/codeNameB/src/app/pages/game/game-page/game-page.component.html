@@ -1,0 +1,30 @@
+<section class="game">
+  <div class="selection-wrapper">
+    <app-selection
+      *ngIf="!isReadyState"
+      (selectStartParameters)="setStartParameters($event)"
+    ></app-selection>
+  </div>
+  <div
+    class="frame-wrapper"
+    [ngClass]="{ ready: isReadyState, notReady: !isReadyState }"
+  >
+    <iframe
+      #godotIframe
+      id="godotIframe"
+      src="http://localhost:8080/public/CodenameB.html"
+      frameborder="0"
+      scrolling="no"
+      allowfullscreen="true"
+      allowtransparency="true"
+      webkitallowfullscreen="true"
+      mozallowfullscreen="true"
+      msallowfullscreen="true"
+      allow="fullscreen"
+    ></iframe>
+    <button (click)="openFullscreen()">
+      <img alt="Fullscreen" src="assets/icons/fullscreen.svg" />
+    </button>
+  </div>
+  <app-loading-screen [show]="waitForWebsocket"></app-loading-screen>
+</section>

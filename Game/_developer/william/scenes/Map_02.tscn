@@ -1,0 +1,111 @@
+[gd_scene load_steps=15 format=3 uid="uid://bq31qoqep3kwb"]
+
+[ext_resource type="Script" path="res://src/core/entities/map.gd" id="1_mjfja"]
+[ext_resource type="PackedScene" uid="uid://b18iesnpxnh5l" path="res://src/weapons/WeaponBase.tscn" id="5_0f3ql"]
+[ext_resource type="Resource" uid="uid://by3dylniy1vge" path="res://data/weapons/WEAPON01_Fireball1_data.tres" id="6_exee0"]
+[ext_resource type="Texture2D" uid="uid://iamjr6ohabu0" path="res://game_icon.png" id="7_3rfr3"]
+[ext_resource type="Script" path="res://src/core/components/projectile_container.gd" id="7_8bd62"]
+[ext_resource type="PackedScene" uid="uid://blaj561uawi8v" path="res://src/weapons/BulletBase.tscn" id="8_csekq"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_53bh3"]
+a = Vector2(-1000, -1000)
+b = Vector2(1000, -1000)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lsjpm"]
+a = Vector2(1000, -1000)
+b = Vector2(1000, 1000)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_60lc3"]
+a = Vector2(1000, 1000)
+b = Vector2(-1000, 1000)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_axmv3"]
+a = Vector2(-1000, 1000)
+b = Vector2(-1000, -1000)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gyagc"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_2xvre"]
+device = -1
+keycode = 70
+unicode = 102
+
+[sub_resource type="Shortcut" id="Shortcut_4wxqf"]
+events = [SubResource("InputEventKey_2xvre")]
+
+[sub_resource type="GDScript" id="GDScript_l8mf0"]
+script/source = "extends Button
+
+@export var weapon: Weapon
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pressed.connect(func(): weapon.is_manual_shooting = !weapon.is_manual_shooting)
+"
+
+[node name="Map" type="Node2D"]
+z_index = -1
+y_sort_enabled = true
+script = ExtResource("1_mjfja")
+camera_rect = Rect2i(-1120, -875, 2240, 1610)
+spawn_rect = Rect2i(-935, -615, 1870, 1230)
+metadata/_edit_vertical_guides_ = [-1120.0, 1120.0]
+metadata/_edit_horizontal_guides_ = [788.0, -875.0]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2(0.935, 0.615)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("SegmentShape2D_53bh3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("SegmentShape2D_lsjpm")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("SegmentShape2D_60lc3")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("SegmentShape2D_axmv3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ProjectileContainer" type="Node2D" parent="."]
+z_index = 99
+script = ExtResource("7_8bd62")
+bullet_scene = ExtResource("8_csekq")
+
+[node name="WeaponBase" parent="." node_paths=PackedStringArray("aim_range", "audio_player") instance=ExtResource("5_0f3ql")]
+data = ExtResource("6_exee0")
+is_manual_shooting = true
+aim_range = NodePath("Range")
+audio_player = NodePath("Sfx")
+
+[node name="ProjectileContainer2" type="Node2D" parent="."]
+script = ExtResource("7_8bd62")
+bullet_scene = ExtResource("8_csekq")
+
+[node name="StaticBody2D2" type="CharacterBody2D" parent="."]
+position = Vector2(129, 138)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-1, 4)
+shape = SubResource("CircleShape2D_gyagc")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(49, 57)
+scale = Vector2(0.599993, 0.669956)
+texture = ExtResource("7_3rfr3")
+
+[node name="Button" type="Button" parent="." node_paths=PackedStringArray("weapon")]
+offset_top = -155.0
+offset_right = 8.0
+offset_bottom = -147.0
+shortcut = SubResource("Shortcut_4wxqf")
+text = "set fire mode"
+script = SubResource("GDScript_l8mf0")
+weapon = NodePath("../WeaponBase")
+
+[editable path="WeaponBase"]

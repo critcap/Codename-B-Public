@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="PlayerCharacterData" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/modifier_data.gd" id="1_m25en"]
+[ext_resource type="Resource" path="res://data/weapons/WEAPON22_Knife1_data.tres" id="2_2b5ff"]
+[ext_resource type="Script" path="res://src/core/resources/data_characters.gd" id="2_18l7y"]
+
+[sub_resource type="Resource" id="Resource_2lbq2"]
+script = ExtResource("1_m25en")
+type = 12
+mod = 1
+value = 10.0
+is_percentage = false
+
+[sub_resource type="Resource" id="Resource_l3wdy"]
+script = ExtResource("1_m25en")
+type = 1
+mod = 1
+value = 2.0
+is_percentage = false
+
+[sub_resource type="Resource" id="Resource_sf3m8"]
+script = ExtResource("1_m25en")
+type = 13
+mod = 1
+value = -100.0
+is_percentage = false
+
+[resource]
+script = ExtResource("2_18l7y")
+name = "Dwarf"
+id = 5
+full_name = "Droemenik"
+description = "Droemenik, ein vielseitiger Zwergen-Tüftler und Erfinder, sorgt immer für eine Überraschung. Seine genialen Erfindungen machen ihn zu einer unverzichtbaren und faszinierenden Persönlichkeit."
+price = 2000
+thumbnail = "res://src/art/thumbnails/characters/T_DwarfPortrait.png"
+base_health = 10
+scene = "res://src/player/05_dwarf/PC_Dwarf.tscn"
+base_weapon = ExtResource("2_2b5ff")
+base_modifiers = Array[ExtResource("1_m25en")]([SubResource("Resource_2lbq2"), SubResource("Resource_l3wdy"), SubResource("Resource_sf3m8")])
+max_count = 1

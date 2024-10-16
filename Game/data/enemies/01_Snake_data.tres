@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3]
+
+[ext_resource type="Resource" path="res://src/enemies/common/EnemyAttack_Melee.tres" id="1_iyukr"]
+[ext_resource type="Script" path="res://src/core/resources/data_enemies.gd" id="1_tj2sm"]
+
+[resource]
+script = ExtResource("1_tj2sm")
+id = 1.0
+code = "chaser"
+name = "Snake"
+description = ""
+health = 1.0
+health_per_wave = 1.0
+speed = 380.0
+max_speed = 380.0
+acceleration = 0.0
+damage = 1.0
+damage_per_wave = 0.6
+experience = 1.0
+drop_change = 0.02
+rare_drop = 0.03
+scene = "res://src/enemies/02_snake/EC_Snake.tscn"
+attack_data = ExtResource("1_iyukr")
+movement_type = 0

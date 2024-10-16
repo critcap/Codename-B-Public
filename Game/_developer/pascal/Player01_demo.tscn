@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://src/player/PlayerBase.tscn" id="1_ppmgw"]
+[ext_resource type="PackedScene" path="res://src/player/components/PlayerCharacterAnimationRig.tscn" id="3_8ih5l"]
+
+[node name="PlayerCharacter" instance=ExtResource("1_ppmgw")]
+
+[node name="WeaponBase" parent="WeaponRig" index="0"]
+"]position" = Vector2(-50, 6.12303e-15)
+
+[node name="CharacterController" parent="." index="4" node_paths=PackedStringArray("character")]
+character = NodePath("..")
+
+[node name="PlayerCharacterAnimationRig" parent="." index="5" node_paths=PackedStringArray("health") instance=ExtResource("3_8ih5l")]
+health = NodePath("../Health")

@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/data_weapons.gd" id="1_23xxq"]
+[ext_resource type="Texture2D" path="res://src/weapons/ATL_WEapons.atlastex" id="1_boh80"]
+
+[resource]
+script = ExtResource("1_23xxq")
+id = 3
+name = "fireball"
+full_name = "Feuerball"
+description = "Ein gewaltiger Feuerball, der eine massive Explosion verursacht und maximalen Schaden anrichtet."
+price = 0
+icon = ExtResource("1_boh80")
+level = 3
+max_count = 1
+damage = 10
+targets = 1
+attack_range = 600
+attack_speed = 0.8
+repeat = 0
+delay = 0.0
+count = 4
+pattern = 0
+_deviation = 1
+projectile_speed = 650
+size_multiplier = 1.4
+bounces = 0
+pierce = 0
+terrain_bounce = false
+return_to_player = false
+allow_shotgunning = false
+is_random_dir = false
+is_rotating = false
+rotation_speed = 1.0
+is_fixed = false
+animations = "default"
+sprite_scale = 4.0
+hitbox_scale = 1.0
+desaturate = false
+color = Color(1, 1, 1, 1)

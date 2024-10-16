@@ -1,0 +1,205 @@
+@import "../../../../assets/styles/vars";
+@import "../../../../assets/styles/difficulty";
+
+.game-history {
+  width: 100vw;
+  margin-bottom: $space-s;
+
+  .games {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    border: 2px solid $white;
+    margin: auto;
+
+    .game_item {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background-color: $historyTableColor;
+      padding: $space-xs;
+      cursor: pointer;
+
+      .circle {
+        border-radius: 50%;
+      }
+
+      &:nth-child(2n) {
+        background-color: $navigationColor !important;
+      }
+
+      &:first-of-type {
+        border-bottom: 2px solid $white;
+        cursor: default;
+      }
+
+      .slim {
+        width: 5%;
+      }
+
+      & > div,
+      & > button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        width: 15%;
+        text-align: center;
+
+        img {
+          width: 2rem;
+          height: auto;
+        }
+
+        &.game-state {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          img {
+            width: 4rem;
+            height: auto;
+          }
+        }
+      }
+
+      & > button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        background: none;
+        text-decoration: underline;
+      }
+
+      .details {
+        display: flex;
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        flex-grow: 1;
+        text-align: start;
+
+        .detail-border {
+          margin: auto;
+          width: 0;
+          height: 2px;
+          background-color: #ffffff;
+          margin-top: $space-xs;
+          transition: width 1s ease;
+        }
+
+        &.show {
+          max-height: 100%;
+          overflow: auto;
+
+          .detail-border {
+            width: calc(100% - $space-s);
+          }
+        }
+
+        .start-params {
+          padding: $space-xs;
+
+          h2 {
+            padding: $space-xs 0;
+            text-decoration: underline;
+          }
+
+          .params {
+            .defaults {
+              display: flex;
+              flex-direction: row;
+              gap: $space-m;
+
+              .character,
+              .map,
+              .difficulty {
+                display: flex;
+                flex-direction: column;
+                gap: $space-xs;
+                justify-content: center;
+
+                p {
+                  margin: 0;
+                }
+
+                img {
+                  height: 6rem;
+                  width: 100%;
+                }
+
+                .name {
+                  padding: 0;
+                  display: grid;
+                  align-items: center;
+                  justify-content: center;
+                  height: 6rem;
+
+                  img {
+                    height: 6rem;
+                    width: auto;
+                  }
+                }
+              }
+            }
+
+            .items-container {
+              .items {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: $space-xs;
+
+                .item {
+                  position: relative;
+                  width: 4rem;
+
+                  .img {
+                    width: 100%;
+                    height: auto;
+                  }
+
+                  .amount {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    backdrop-filter: contrast(90%);
+                    font-size: $defaultFontSize;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .pager {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: $space-m;
+    width: 75%;
+    margin: auto;
+    padding: $space-m;
+
+    button {
+      border: 1px solid $disabled;
+      background: none;
+      color: $disabled;
+      border-radius: 12px;
+      padding: $space-xs $space-m;
+      pointer-events: none;
+
+      &.active {
+        pointer-events: all !important;
+        border: 1px solid $white !important;
+        color: $white !important;
+      }
+    }
+  }
+}

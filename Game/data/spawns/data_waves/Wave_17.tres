@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SpawnWave" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/data_waves.gd" id="1_gx1fx"]
+
+[resource]
+script = ExtResource("1_gx1fx")
+duration = 0
+transition = 0
+sequences = Array[Resource("res://src/core/resources/data_spawns.gd")]([])
+is_enabled = false

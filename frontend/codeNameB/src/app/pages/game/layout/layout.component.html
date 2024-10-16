@@ -1,0 +1,18 @@
+<div class="inner-wrapper">
+  <section class="pick-site">
+    <div class="shop">
+      <button (click)="select('/game/shop')"><h2>ITEM-SHOP</h2></button>
+    </div>
+    <div class="game">
+      <button (click)="select('/game/codenameb')">
+        <h2>JETZT SPIELEN</h2>
+      </button>
+    </div>
+    <div class="history">
+      <button (click)="select('/game/history')">
+        <h2>SPIELHISTORIE</h2>
+      </button>
+    </div>
+  </section>
+  <router-outlet (activate)="onActivate($event)"></router-outlet>
+</div>

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SpawnSequence" load_steps=4 format=3]
+
+[ext_resource type="Resource" path="res://data/enemies/15_Golem_Small_data.tres" id="1_00ygy"]
+[ext_resource type="Resource" path="res://src/enemies/patterns/SpawnPattern_Edge.tres" id="2_7j07h"]
+[ext_resource type="Script" path="res://src/core/resources/data_spawns.gd" id="2_q4ogj"]
+
+[resource]
+script = ExtResource("2_q4ogj")
+entity = ExtResource("1_00ygy")
+entity_name = "Golem_Small"
+type = 0
+wave = 6
+difficulty = 5
+pattern = ExtResource("2_7j07h")
+delay = 10
+interval = 8
+interval_min = 0
+count = 1
+increase = 0
+is_enabled = true

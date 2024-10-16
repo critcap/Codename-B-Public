@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="PlayerCharacterData" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/modifier_data.gd" id="1_u2afh"]
+[ext_resource type="Resource" path="res://data/weapons/WEAPON10_Arrow1_data.tres" id="2_dfk13"]
+[ext_resource type="Script" path="res://src/core/resources/data_characters.gd" id="2_tfiav"]
+
+[sub_resource type="Resource" id="Resource_upvto"]
+script = ExtResource("1_u2afh")
+type = 6
+mod = 1
+value = 15.0
+is_percentage = false
+
+[sub_resource type="Resource" id="Resource_sutgh"]
+script = ExtResource("1_u2afh")
+type = 4
+mod = 0
+value = 8.0
+is_percentage = false
+
+[sub_resource type="Resource" id="Resource_q0e60"]
+script = ExtResource("1_u2afh")
+type = 5
+mod = 1
+value = 10.0
+is_percentage = true
+
+[resource]
+script = ExtResource("2_tfiav")
+name = "Archer"
+id = 3
+full_name = "Lont'est"
+description = "Ein flinker Bogenschütze aus dem Brooker Tal ist nicht nur für sein schnelles Mundwerk bekannt, sondern auch für seinen blitzschnellen Bogen und sein geschicktes Fußwerk. Diese Fähigkeiten machen ihn zu einem beeindruckenden und gefährlichen Kämpfer."
+price = 1000
+thumbnail = "res://src/art/thumbnails/characters/T_ArcherPortrait.png"
+base_health = 10
+scene = "res://src/player/03_archer/PC_Archer.tscn"
+base_weapon = ExtResource("2_dfk13")
+base_modifiers = Array[ExtResource("1_u2afh")]([SubResource("Resource_upvto"), SubResource("Resource_sutgh"), SubResource("Resource_q0e60")])
+max_count = 1

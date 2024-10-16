@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3]
+
+[ext_resource type="FontFile" path="res://src/game/common/Font_Compass.ttf" id="1_bbbrl"]
+
+[resource]
+font = ExtResource("1_bbbrl")
+font_size = 36
+shadow_size = 0

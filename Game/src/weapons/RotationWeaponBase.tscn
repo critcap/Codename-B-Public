@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/weapons/rotation_weapon_base.gd" id="1_lo85j"]
+[ext_resource type="PackedScene" path="res://src/weapons/BulletBase.tscn" id="2_hb84j"]
+
+[node name="RotationWeaponBase" type="Node2D"]
+position = Vector2(0, -32)
+script = ExtResource("1_lo85j")
+projectile = ExtResource("2_hb84j")
+
+[node name="Pivot" type="Marker2D" parent="."]
+unique_name_in_owner = true

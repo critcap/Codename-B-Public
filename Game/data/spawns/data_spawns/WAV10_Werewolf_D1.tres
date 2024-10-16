@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SpawnSequence" load_steps=4 format=3]
+
+[ext_resource type="Resource" path="res://data/enemies/05_Werewolf_data.tres" id="1_3i06m"]
+[ext_resource type="Script" path="res://src/core/resources/data_spawns.gd" id="2_4l4v1"]
+[ext_resource type="Resource" path="res://src/enemies/patterns/SpawnPattern_Single.tres" id="2_fddq4"]
+
+[resource]
+script = ExtResource("2_4l4v1")
+entity = ExtResource("1_3i06m")
+entity_name = "Werewolf"
+type = 0
+wave = 10
+difficulty = 1
+pattern = ExtResource("2_fddq4")
+delay = 5
+interval = 8
+interval_min = 5
+count = 2
+increase = 1
+is_enabled = true

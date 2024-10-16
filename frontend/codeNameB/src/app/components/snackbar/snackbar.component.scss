@@ -1,0 +1,15 @@
+.snackbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 3rem;
+  height: fit-content;
+  .dismiss {
+    button {
+      background: none;
+      border: none;
+      padding: 0;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/data_enemies.gd" id="1_0ksoq"]
+[ext_resource type="Resource" path="res://src/enemies/common/EnemyAttack_Melee.tres" id="1_tl6km"]
+
+[resource]
+script = ExtResource("1_0ksoq")
+id = 9.0
+code = "looter"
+name = "Goblin"
+description = ""
+health = 50.0
+health_per_wave = 25.0
+speed = 300.0
+max_speed = 400.0
+acceleration = 0.0
+damage = 1.0
+damage_per_wave = 0.85
+experience = 8.0
+drop_change = 1.0
+rare_drop = 1.0
+scene = "res://src/enemies/10_goblin/EC_Goblin.tscn"
+attack_data = ExtResource("1_tl6km")
+movement_type = 1

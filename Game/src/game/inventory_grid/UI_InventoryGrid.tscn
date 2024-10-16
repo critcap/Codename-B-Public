@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/game/inventory_grid/inventory_grid.gd" id="1_y2y4l"]
+[ext_resource type="PackedScene" path="res://src/game/inventory_grid/UC_InventoryGridEntry.tscn" id="2_g2ltt"]
+
+[node name="InventoryGrid" type="PanelContainer"]
+custom_minimum_size = Vector2(404, 525)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y2y4l")
+entry = ExtResource("2_g2ltt")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 6

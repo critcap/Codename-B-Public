@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="PlayerCharacterData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/modifier_data.gd" id="1_htdn2"]
+[ext_resource type="Script" path="res://src/core/resources/data_characters.gd" id="2_jl6hy"]
+[ext_resource type="Resource" path="res://data/weapons/WEAPON19_Bats1_data.tres" id="2_rtk2s"]
+
+[sub_resource type="Resource" id="Resource_24nub"]
+script = ExtResource("1_htdn2")
+type = 1
+mod = 0
+value = 100.0
+is_percentage = false
+
+[sub_resource type="Resource" id="Resource_74v8i"]
+script = ExtResource("1_htdn2")
+type = 11
+mod = 1
+value = 2.0
+is_percentage = false
+
+[resource]
+script = ExtResource("2_jl6hy")
+name = "Demon"
+id = 7
+full_name = "Lith"
+description = "Die Dämonin des Mondes, bekannt als Lith, ist eine geheimnisvolle und mächtige Gestalt in den Schatten der Nacht. Ihre Präsenz ist so unheimlich wie der düstere Schein des Mondes selbst. Lith ist die Verkörperung der Finsternis, deren Kräfte ebenso vielschichtig wie gefährlich sind."
+price = 9500
+thumbnail = "res://src/art/thumbnails/characters/T_DemonPortrait.png"
+base_health = 10
+scene = "res://src/player/07_demon/PC_Demon.tscn"
+base_weapon = ExtResource("2_rtk2s")
+base_modifiers = Array[ExtResource("1_htdn2")]([SubResource("Resource_24nub"), SubResource("Resource_74v8i")])
+max_count = 1

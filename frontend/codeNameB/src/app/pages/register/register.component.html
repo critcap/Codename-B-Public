@@ -1,0 +1,67 @@
+<section>
+  <h2>Registrierungsformular</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmitForm()">
+    <div class="names">
+      <label for="surname" id="l_surname">Vorname*</label>
+      <input
+        type="text"
+        id="surname"
+        name="surname"
+        formControlName="firstName"
+        placeholder="Max"
+      />
+
+      <label for="lastname" id="l_lastname">Nachname*</label>
+      <input
+        type="text"
+        id="latname"
+        name="lastname"
+        formControlName="lastName"
+        placeholder="Mustermann"
+      />
+
+      <label for="username" id="l_username">Benutzername*</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        formControlName="userName"
+        placeholder="Maxi187"
+      />
+    </div>
+
+    <div class="email">
+      <label for="email" id="l_email">Email*</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        formControlName="email"
+        placeholder="max.mustermann@gmail.com"
+      />
+    </div>
+
+    <div class="passwords">
+      <label for="password" id="l_password">Passwort*</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        formControlName="password"
+        placeholder="Passwort"
+      />
+
+      <label for="password-repeat" id="l_password-repeat"
+        >Passwort wiederholen*</label
+      >
+      <input
+        type="password"
+        id="password-repeat"
+        name="password-repeat"
+        formControlName="passwordRepeat"
+        placeholder="Passwort wiederholen"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Registrieren</button>
+  </form>
+</section>

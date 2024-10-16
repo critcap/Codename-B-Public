@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SpawnSequence" load_steps=4 format=3]
+
+[ext_resource type="Resource" path="res://data/enemies/04_Ghost_data.tres" id="1_yfewv"]
+[ext_resource type="Script" path="res://src/core/resources/data_spawns.gd" id="2_ak3rk"]
+[ext_resource type="Resource" path="res://src/enemies/patterns/SpawnPattern_Single.tres" id="2_ecc4b"]
+
+[resource]
+script = ExtResource("2_ak3rk")
+entity = ExtResource("1_yfewv")
+entity_name = "Ghost"
+type = 0
+wave = 11
+difficulty = 5
+pattern = ExtResource("2_ecc4b")
+delay = 3
+interval = 10
+interval_min = 0
+count = 1
+increase = 0
+is_enabled = true

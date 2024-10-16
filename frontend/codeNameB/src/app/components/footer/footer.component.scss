@@ -1,0 +1,53 @@
+@import "../../../assets/styles/vars";
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: $space-xs;
+  gap: $space-xs;
+
+  color: $secondaryColor;
+  background: rgb(16, 3, 21);
+  background: linear-gradient(
+    90deg,
+    rgba(16, 3, 21, 1) 0%,
+    rgba(73, 14, 96, 1) 75%,
+    rgba(115, 20, 152, 1) 100%
+  );
+
+  img {
+    width: 100px;
+    max-width: 25vw;
+    height: auto;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-bottom: $space-xs;
+
+    li {
+      font-size: $defaultFontSize;
+
+      @media screen and (max-width: $mobile) {
+        font-size: $smallFontSize;
+      }
+
+      &.blocker {
+        max-width: 10px;
+      }
+
+      a,
+      a:active,
+      a:focus,
+      a:visited {
+        color: $secondaryColor;
+      }
+    }
+  }
+}

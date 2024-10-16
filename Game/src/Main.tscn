@@ -1,0 +1,101 @@
+[gd_scene load_steps=11 format=3 uid="uid://clefvb4saysjy"]
+
+[ext_resource type="Script" path="res://src/main.gd" id="1"]
+[ext_resource type="Script" path="res://src/app/web/connection/javascript_bridge_wrapper.gd" id="2_otocj"]
+[ext_resource type="Script" path="res://src/app/web/connection/web_socket_client.gd" id="2_sv0p0"]
+[ext_resource type="FontFile" uid="uid://dwdsydecmuwgt" path="res://src/game/common/Font_Compass.ttf" id="5_rowrh"]
+[ext_resource type="PackedScene" path="res://src/app/web/UI_Log.tscn" id="5_xmc0q"]
+[ext_resource type="PackedScene" path="res://src/app/loading_screen/LoadingScreen.tscn" id="7_sfyjt"]
+[ext_resource type="Script" path="res://src/app/loading_screen/shader_precompiler.gd" id="8_b7wj5"]
+[ext_resource type="PackedScene" path="res://src/app/standalone/UI_CharacterSelection.tscn" id="8_oewml"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fe1so"]
+font = ExtResource("5_rowrh")
+font_size = 128
+outline_size = 32
+outline_color = Color(0.0646965, 0.0646965, 0.0646965, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_34ojw"]
+font = ExtResource("5_rowrh")
+font_size = 32
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Main" type="Node" node_paths=PackedStringArray("_client", "_bridge")]
+script = ExtResource("1")
+_client = NodePath("WebSocketClient")
+_bridge = NodePath("JavaScriptBridgeWrapper")
+
+[node name="JavaScriptBridgeWrapper" type="Node" parent="."]
+script = ExtResource("2_otocj")
+
+[node name="WebSocketClient" type="Node" parent="."]
+script = ExtResource("2_sv0p0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 99
+
+[node name="Title" type="ColorRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.0117647, 0.0823529, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/Title"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 107.0
+offset_right = 20.0
+offset_bottom = 130.0
+grow_horizontal = 2
+text = "Codename-B"
+label_settings = SubResource("LabelSettings_fe1so")
+horizontal_alignment = 1
+
+[node name="Status" type="Label" parent="CanvasLayer/Title"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.0
+offset_top = 124.0
+offset_right = 166.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Warten auf Spiel Session"
+label_settings = SubResource("LabelSettings_34ojw")
+
+[node name="Log" parent="CanvasLayer" instance=ExtResource("5_xmc0q")]
+offset_left = -693.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+
+[node name="Startscreen" parent="CanvasLayer" instance=ExtResource("8_oewml")]
+unique_name_in_owner = true
+offset_top = 364.0
+offset_bottom = -2.0
+
+[node name="LoadingScreen" parent="CanvasLayer" node_paths=PackedStringArray("shader_precompiler") instance=ExtResource("7_sfyjt")]
+unique_name_in_owner = true
+visible = false
+shader_precompiler = NodePath("../../ShaderPrecompiler")
+skip_in_debug = false
+
+[node name="ShaderPrecompiler" type="Node2D" parent="."]
+visible = false
+script = ExtResource("8_b7wj5")
+
+[connection signal="start_game" from="CanvasLayer/Startscreen" to="." method="_on_startscreen_start_game"]
+
+[editable path="CanvasLayer/Startscreen"]

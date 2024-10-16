@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="StatData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/stat_data.gd" id="1_y753x"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gn8eg"]
+load_path = "res://.godot/imported/T_Icons.png-c4904b97a3031a24c6ca8c700cb1fa71.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1b7r7"]
+atlas = SubResource("CompressedTexture2D_gn8eg")
+region = Rect2(192, 0, 48, 48)
+
+[resource]
+script = ExtResource("1_y753x")
+_id = 0
+_name = &"Health"
+_short_name = &"HP"
+_description = "Current Health"
+_hidden = true
+_negativ_is_good = false
+_value_cap = 0.0
+_icon = SubResource("AtlasTexture_1b7r7")

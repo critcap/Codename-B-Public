@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SpawnWave" load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/data_waves.gd" id="1_n6pi4"]
+[ext_resource type="Resource" path="res://data/spawns/data_spawns/WAV5_Golem_Small_D4.tres" id="2_37gkd"]
+[ext_resource type="Resource" path="res://data/spawns/data_spawns/WAV5_Scorpion_D1.tres" id="3_ytiwy"]
+[ext_resource type="Resource" path="res://data/spawns/data_spawns/WAV5_Shroom_D1.tres" id="4_k8mfw"]
+[ext_resource type="Resource" path="res://data/spawns/data_spawns/WAV5_Skeleton_D1.tres" id="5_oj0qh"]
+[ext_resource type="Resource" path="res://data/spawns/data_spawns/WAV5_Snake_D1.tres" id="6_rnuxb"]
+[ext_resource type="Resource" path="res://data/spawns/data_spawns/WAV5_Snake_D2.tres" id="7_2mi6x"]
+
+[resource]
+script = ExtResource("1_n6pi4")
+duration = 40
+transition = 5
+sequences = Array[Resource("res://src/core/resources/data_spawns.gd")]([ExtResource("2_37gkd"), ExtResource("3_ytiwy"), ExtResource("4_k8mfw"), ExtResource("5_oj0qh"), ExtResource("6_rnuxb"), ExtResource("7_2mi6x")])
+is_enabled = true

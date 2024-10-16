@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://src/player/PlayerBase.tscn" id="1_fa4vm"]
+[ext_resource type="PackedScene" path="res://src/player/01_knight/PC_Knight_AnimationRig.tscn" id="2_yugg5"]
+
+[node name="PlayerCharacter" node_paths=PackedStringArray("experience", "weapon_rig", "health") instance=ExtResource("1_fa4vm")]
+base_movement_speed = 450
+experience = NodePath("PlayerExperience")
+weapon_rig = NodePath("WeaponRig")
+health = NodePath("Health")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, -25)
+
+[node name="WeaponRig" parent="." index="1"]
+z_index = 2
+position = Vector2(-1, -27)
+radius = 20
+max_weapons = 3
+
+[node name="CharacterController" parent="." index="2" node_paths=PackedStringArray("character")]
+character = NodePath("..")
+
+[node name="PlayerExperience" parent="." index="3"]
+unique_name_in_owner = true
+
+[node name="PlayerCharacterAnimationRig" parent="." index="5" node_paths=PackedStringArray("character", "health") instance=ExtResource("2_yugg5")]
+character = NodePath("..")
+health = NodePath("../Health")

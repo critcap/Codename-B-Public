@@ -1,0 +1,17 @@
+- add standard deviation and also implement weapon deviation from data
+- Barrage
+	- delay in weapon.gd
+- fix getting range using unique name node
+- add bullet duration
+- what does size_multiplier
+- Character Sprites bottom pixel
+- split bullets
+- fork bullets
+- on hit effects
+- sword rework
+- arrow rework
+- hit animations:
+	- normal/physical
+	- thunder
+	- fire
+	- ice

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/data_enemies.gd" id="1_hg842"]
+[ext_resource type="Resource" path="res://src/enemies/common/EnemyAttack_Melee.tres" id="1_sbaje"]
+
+[resource]
+script = ExtResource("1_hg842")
+id = 16.0
+code = "egg"
+name = "Flower_Small"
+description = ""
+health = 5.0
+health_per_wave = 3.0
+speed = 0.0
+max_speed = 0.0
+acceleration = 0.0
+damage = 1.0
+damage_per_wave = 0.6
+experience = 1.0
+drop_change = 0.0
+rare_drop = 0.0
+scene = "res://src/enemies/17_flower_small/EC_Flower_Small.tscn"
+attack_data = ExtResource("1_sbaje")
+movement_type = 0

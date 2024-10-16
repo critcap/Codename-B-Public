@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://src/player/PlayerBase.tscn" id="1_a0rpf"]
+[ext_resource type="PackedScene" path="res://src/player/01_knight/PC_Knight_AnimationRig.tscn" id="3_qc77o"]
+[ext_resource type="SpriteFrames" path="res://src/player/03_archer/SPR_Mage.tres" id="4_ysdeq"]
+
+[node name="PlayerCharacter" node_paths=PackedStringArray("experience", "weapon_rig", "health") instance=ExtResource("1_a0rpf")]
+base_movement_speed = 450
+experience = NodePath("PlayerExperience")
+weapon_rig = NodePath("WeaponRig")
+health = NodePath("Health")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, -25)
+
+[node name="WeaponRig" parent="." index="1"]
+z_index = 2
+position = Vector2(-1, -27)
+max_weapons = 3
+
+[node name="CharacterController" parent="." index="2" node_paths=PackedStringArray("character")]
+character = NodePath("..")
+
+[node name="PlayerExperience" parent="." index="3"]
+unique_name_in_owner = true
+
+[node name="PlayerCharacterAnimationRig" parent="." index="5" node_paths=PackedStringArray("character", "health") instance=ExtResource("3_qc77o")]
+character = NodePath("..")
+health = NodePath("../Health")
+
+[node name="AnimatedSprite" parent="PlayerCharacterAnimationRig/Pivot" index="0"]
+sprite_frames = ExtResource("4_ysdeq")
+frame_progress = 0.0
+
+[editable path="PlayerCharacterAnimationRig"]

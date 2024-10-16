@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3]
+
+[ext_resource type="Texture2D" path="res://src/weapons/ATL_WEapons.tres" id="1_4jfvq"]
+[ext_resource type="Script" path="res://src/core/resources/data_weapons.gd" id="1_be5pj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k85tl"]
+atlas = ExtResource("1_4jfvq")
+region = Rect2(48, 96, 48, 48)
+
+[resource]
+script = ExtResource("1_be5pj")
+id = 38
+name = "fan_of_knives"
+full_name = "Messerfächer"
+description = "Ein größerer Messerfächer, der eine größere Anzahl Feinde trifft und erheblichen Schaden zufügt."
+price = 0
+icon = SubResource("AtlasTexture_k85tl")
+level = 2
+max_count = 1
+damage = 13
+targets = 1
+attack_range = 350
+attack_speed = 2.25
+repeat = 0
+delay = 0.25
+count = 12
+pattern = 2
+_deviation = 0
+projectile_speed = 800
+size_multiplier = 0.5
+bounces = 0
+pierce = 9
+terrain_bounce = false
+return_to_player = false
+allow_shotgunning = false
+is_random_dir = false
+is_rotating = true
+rotation_speed = 6.0
+is_fixed = true
+animations = "dagger"
+sprite_scale = 4.0
+hitbox_scale = 1.0
+desaturate = false
+color = Color(1, 1, 1, 1)

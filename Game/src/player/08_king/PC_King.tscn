@@ -1,0 +1,144 @@
+[gd_scene load_steps=17 format=3]
+
+[ext_resource type="PackedScene" path="res://src/player/PlayerBase.tscn" id="1_w5ea0"]
+[ext_resource type="PackedScene" path="res://src/player/01_knight/PC_Knight_AnimationRig.tscn" id="3_e5jrc"]
+[ext_resource type="Texture2D" path="res://src/art/entities/T_CharacterD.png" id="4_ffpj4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpr4a"]
+atlas = ExtResource("4_ffpj4")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glwmk"]
+atlas = ExtResource("4_ffpj4")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_il5vt"]
+atlas = ExtResource("4_ffpj4")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jc0v"]
+atlas = ExtResource("4_ffpj4")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2b3k"]
+atlas = ExtResource("4_ffpj4")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omq7f"]
+atlas = ExtResource("4_ffpj4")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryeja"]
+atlas = ExtResource("4_ffpj4")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpk8n"]
+atlas = ExtResource("4_ffpj4")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ws081"]
+atlas = ExtResource("4_ffpj4")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5oha0"]
+atlas = ExtResource("4_ffpj4")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4bcj"]
+atlas = ExtResource("4_ffpj4")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06e5i"]
+atlas = ExtResource("4_ffpj4")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sqkkh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpr4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glwmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_il5vt")
+}],
+"loop": true,
+"name": &"east",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jc0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2b3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omq7f")
+}],
+"loop": true,
+"name": &"north",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryeja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpk8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ws081")
+}],
+"loop": true,
+"name": &"south",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5oha0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4bcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06e5i")
+}],
+"loop": true,
+"name": &"west",
+"speed": 8.0
+}]
+
+[node name="PlayerCharacter" node_paths=PackedStringArray("experience", "weapon_rig", "health") instance=ExtResource("1_w5ea0")]
+base_movement_speed = 450
+experience = NodePath("PlayerExperience")
+weapon_rig = NodePath("WeaponRig")
+health = NodePath("Health")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, -25)
+
+[node name="WeaponRig" parent="." index="1"]
+z_index = 2
+position = Vector2(-1, -27)
+radius = 0
+max_weapons = 3
+
+[node name="CharacterController" parent="." index="2" node_paths=PackedStringArray("character")]
+character = NodePath("..")
+
+[node name="PlayerExperience" parent="." index="3"]
+unique_name_in_owner = true
+
+[node name="PlayerCharacterAnimationRig" parent="." index="5" node_paths=PackedStringArray("character", "health") instance=ExtResource("3_e5jrc")]
+character = NodePath("..")
+health = NodePath("../Health")
+
+[node name="AnimatedSprite" parent="PlayerCharacterAnimationRig/Pivot" index="0"]
+sprite_frames = SubResource("SpriteFrames_sqkkh")
+animation = &"south"
+frame_progress = 0.0
+
+[editable path="PlayerCharacterAnimationRig"]

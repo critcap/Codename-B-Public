@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://src/core/singletons/data_service/data_service.gd" id="1_cvoss"]
+[ext_resource type="Script" path="res://src/core/resources/stat_data.gd" id="2_xifre"]
+
+[sub_resource type="Resource" id="Resource_s0yr8"]
+script = ExtResource("2_xifre")
+_id = 0
+_name = &"Health"
+_short_name = &""
+_description = "Current health of the player"
+_hidden = true
+_negativ_is_good = false
+_value_cap = -1.0
+
+[sub_resource type="Resource" id="Resource_yoti3"]
+script = ExtResource("2_xifre")
+_id = 1
+_name = &"Maximum Health"
+_short_name = &""
+_description = "Maximum health of the player"
+_hidden = false
+_negativ_is_good = false
+_value_cap = -1.0
+
+[sub_resource type="Resource" id="Resource_l1la0"]
+script = ExtResource("2_xifre")
+_id = 2
+_name = &"Damage"
+_short_name = &""
+_description = "Damage multiplicator of the player"
+_hidden = false
+_negativ_is_good = false
+_value_cap = -1.0
+
+[sub_resource type="Resource" id="Resource_6c84g"]
+script = ExtResource("2_xifre")
+_id = 3
+_name = &"Defenese"
+_short_name = &""
+_description = "Damage reduction multiplicator of the player"
+_hidden = false
+_negativ_is_good = false
+_value_cap = -1.0
+
+[node name="DataService" type="Node"]
+script = ExtResource("1_cvoss")
+stat_info = Array[ExtResource("2_xifre")]([SubResource("Resource_s0yr8"), SubResource("Resource_yoti3"), SubResource("Resource_l1la0"), SubResource("Resource_6c84g")])

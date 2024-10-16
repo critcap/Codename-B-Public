@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/modifier_data.gd" id="1_as7ao"]
+[ext_resource type="Script" path="res://src/core/resources/data_items.gd" id="1_j0fg0"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gn8eg"]
+load_path = "res://.godot/imported/T_Icons.png-c4904b97a3031a24c6ca8c700cb1fa71.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8fnv"]
+atlas = SubResource("CompressedTexture2D_gn8eg")
+region = Rect2(480, 0, 48, 48)
+
+[sub_resource type="Resource" id="Resource_ctq5m"]
+script = ExtResource("1_as7ao")
+type = 14
+mod = 1
+value = 50.0
+is_percentage = true
+
+[resource]
+script = ExtResource("1_j0fg0")
+id = 11
+name = &"thorns"
+full_name = "Dornenrüstung"
+description = "Erhöht den erlittenen Dornenschaden um {val}%"
+rarity = 0
+price = 200
+max_count = 4
+icon = SubResource("AtlasTexture_u8fnv")
+modifiers = Array[ExtResource("1_as7ao")]([SubResource("Resource_ctq5m")])

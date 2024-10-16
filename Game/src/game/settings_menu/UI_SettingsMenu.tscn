@@ -1,0 +1,122 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/game/settings_menu/UI_SettingsMenu.gd" id="1_syppj"]
+[ext_resource type="PackedScene" path="res://src/shared/user_controls/UC_bg.tscn" id="1_xbmn4"]
+[ext_resource type="LabelSettings" path="res://src/game/common/LabelSetting_Title.tres" id="2_tjaw6"]
+[ext_resource type="PackedScene" path="res://src/game/settings_menu/volume_slider.tscn" id="4_4x2k4"]
+
+[sub_resource type="GDScript" id="GDScript_i1dnr"]
+script/source = "extends CheckBox
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	GameService.get_context().is_manual_aim.value_changed.connect(_on_value_changed)
+	pressed.connect(func(): GameService.get_context().is_manual_aim.set_next(button_pressed))
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _on_value_changed(value, arg):
+	set_pressed_no_signal(value)
+"
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_syppj")
+
+[node name="Bg" parent="." instance=ExtResource("1_xbmn4")]
+layout_mode = 1
+
+[node name="Title" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "MENU_TITLE"
+label_settings = ExtResource("2_tjaw6")
+horizontal_alignment = 1
+
+[node name="Body" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -62.5
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_right = 400
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Body"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Body/VBoxContainer"]
+layout_mode = 2
+
+[node name="Music" type="Label" parent="Body/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "MUSIC_VOLUME"
+
+[node name="MusicSlider" parent="Body/VBoxContainer/VBoxContainer" instance=ExtResource("4_4x2k4")]
+unique_name_in_owner = true
+layout_mode = 2
+bus_name = "Music"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Body/VBoxContainer"]
+layout_mode = 2
+
+[node name="SoundEffects" type="Label" parent="Body/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "SFX_VOLUME"
+
+[node name="SfxSlider" parent="Body/VBoxContainer/VBoxContainer2" instance=ExtResource("4_4x2k4")]
+unique_name_in_owner = true
+layout_mode = 2
+bus_name = "Sfx"
+
+[node name="MarginContainer" type="MarginContainer" parent="Body/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="VBoxContainer3" type="HBoxContainer" parent="Body/VBoxContainer/MarginContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="SoundEffects" type="Label" parent="Body/VBoxContainer/MarginContainer/VBoxContainer3"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SETTINGS_MANUAL_AIM"
+
+[node name="CheckBox" type="CheckBox" parent="Body/VBoxContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+script = SubResource("GDScript_i1dnr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Body/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Save" type="Button" parent="Body/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "SAVE"
+
+[node name="Cancel" type="Button" parent="Body/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "CANCEL"

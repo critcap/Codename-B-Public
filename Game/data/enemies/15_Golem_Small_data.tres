@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/data_enemies.gd" id="1_63mda"]
+[ext_resource type="Resource" path="res://src/enemies/common/EnemyAttack_Melee.tres" id="1_x4qm1"]
+
+[resource]
+script = ExtResource("1_63mda")
+id = 15.0
+code = "horned_charger"
+name = "Golem_Small"
+description = ""
+health = 12.0
+health_per_wave = 5.0
+speed = 425.0
+max_speed = 425.0
+acceleration = 0.0
+damage = 1.0
+damage_per_wave = 1.1
+experience = 1.0
+drop_change = 0.01
+rare_drop = 0.01
+scene = "res://src/enemies/16_golem_small/EC_Golem_Small.tscn"
+attack_data = ExtResource("1_x4qm1")
+movement_type = 0

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3]
+
+[ext_resource type="Texture2D" path="res://src/art/icons/ATL_Icons.tres" id="1_7yy51"]
+[ext_resource type="Script" path="res://src/core/resources/data_items.gd" id="1_gabpy"]
+[ext_resource type="Script" path="res://src/core/resources/modifier_data.gd" id="1_oaxix"]
+
+[sub_resource type="Resource" id="Resource_anrf4"]
+script = ExtResource("1_oaxix")
+type = 13
+mod = 1
+value = 50.0
+is_percentage = false
+
+[resource]
+script = ExtResource("1_gabpy")
+id = 8
+name = &"range"
+full_name = "Sniper Training"
+description = "Erhöht die Reichweite der Angriffe um {val}"
+rarity = 0
+price = 200
+max_count = 4
+icon = ExtResource("1_7yy51")
+modifiers = Array[ExtResource("1_oaxix")]([SubResource("Resource_anrf4")])

@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Texture2D" path="res://src/art/thumbnails/characters/T_KnightPortrait.png" id="1_0c6ef"]
+[ext_resource type="Script" path="res://src/app/standalone/character_selection_entry.gd" id="1_t6fvs"]
+[ext_resource type="LabelSettings" path="res://src/game/common/LabelSettings_Medium_Bold.tres" id="2_muqa0"]
+[ext_resource type="LabelSettings" path="res://src/game/common/LabelSettings_Small.tres" id="3_xmqyd"]
+
+[node name="20" type="MarginContainer"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(200, 0)
+script = ExtResource("1_t6fvs")
+
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+toggle_mode = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+auto_translate_mode = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_0c6ef")
+expand_mode = 4
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+text = "Name"
+label_settings = ExtResource("2_muqa0")
+
+[node name="Description" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+custom_minimum_size = Vector2(192, 213)
+layout_mode = 2
+text = "Die Dämonin des Mondes, bekannt als Lith, ist eine geheimnisvolle und mächtige Gestalt in den Schatten der Nacht. Ihre Präsenz ist so unheimlich wie der düstere Schein des Mondes selbst. Lith ist die Verkörperung der Finsternis, deren Kräfte ebenso vielschichtig wie gefährlich sind."
+label_settings = ExtResource("3_xmqyd")
+autowrap_mode = 3

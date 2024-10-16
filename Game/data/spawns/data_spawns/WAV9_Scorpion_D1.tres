@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SpawnSequence" load_steps=4 format=3]
+
+[ext_resource type="Resource" path="res://data/enemies/03_Scorpion_data.tres" id="1_0gfdp"]
+[ext_resource type="Resource" path="res://src/enemies/patterns/SpawnPattern_Single.tres" id="2_4uovu"]
+[ext_resource type="Script" path="res://src/core/resources/data_spawns.gd" id="2_nqm8s"]
+
+[resource]
+script = ExtResource("2_nqm8s")
+entity = ExtResource("1_0gfdp")
+entity_name = "Scorpion"
+type = 0
+wave = 9
+difficulty = 1
+pattern = ExtResource("2_4uovu")
+delay = 10
+interval = 3
+interval_min = 0
+count = 2
+increase = 1
+is_enabled = true

@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3]
+
+[ext_resource type="Texture2D" path="res://src/weapons/ATL_WEapons.tres" id="1_0emxl"]
+[ext_resource type="Script" path="res://src/core/resources/data_weapons.gd" id="1_fgrgp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxdmq"]
+atlas = ExtResource("1_0emxl")
+region = Rect2(0, 48, 48, 48)
+
+[resource]
+script = ExtResource("1_fgrgp")
+id = 15
+name = "sword"
+full_name = "Ritterschwert"
+description = "Ein legendäres Ritterschwert, das mächtige Schläge austeilt und maximalen Schaden anrichtet."
+price = 0
+icon = SubResource("AtlasTexture_pxdmq")
+level = 3
+max_count = 1
+damage = 16
+targets = 1
+attack_range = 500
+attack_speed = 0.5
+repeat = 0
+delay = 0.0
+count = 2
+pattern = 0
+_deviation = 0
+projectile_speed = 800
+size_multiplier = 1.0
+bounces = 0
+pierce = 5
+terrain_bounce = false
+return_to_player = true
+allow_shotgunning = false
+is_random_dir = false
+is_rotating = true
+rotation_speed = 6.0
+is_fixed = true
+animations = "sword"
+sprite_scale = 4.0
+hitbox_scale = 1.0
+desaturate = false
+color = Color(1, 1, 1, 1)

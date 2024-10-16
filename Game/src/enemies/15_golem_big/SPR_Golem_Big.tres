@@ -1,0 +1,58 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3]
+
+[ext_resource type="Texture2D" path="res://src/art/entities/T_Boss.png" id="1_0iwnf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqltv"]
+atlas = ExtResource("1_0iwnf")
+region = Rect2(0, 448, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_485i3"]
+atlas = ExtResource("1_0iwnf")
+region = Rect2(64, 448, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_770pn"]
+atlas = ExtResource("1_0iwnf")
+region = Rect2(128, 448, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kaeqd"]
+atlas = ExtResource("1_0iwnf")
+region = Rect2(0, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu6aa"]
+atlas = ExtResource("1_0iwnf")
+region = Rect2(64, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdksb"]
+atlas = ExtResource("1_0iwnf")
+region = Rect2(128, 256, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqltv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_485i3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_770pn")
+}],
+"loop": true,
+"name": &"north",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kaeqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iu6aa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdksb")
+}],
+"loop": true,
+"name": &"south",
+"speed": 5.0
+}]

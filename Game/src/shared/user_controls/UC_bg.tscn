@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Shader" path="res://src/shared/shader/M_Blur.gdshader" id="1_077in"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8gxg0"]
+shader = ExtResource("1_077in")
+shader_parameter/bg_color = null
+shader_parameter/strength = 2.0
+
+[node name="Bg" type="ColorRect"]
+material = SubResource("ShaderMaterial_8gxg0")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

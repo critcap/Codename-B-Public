@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://src/enemies/controller/enemy_controller.gd" id="1_tk48v"]
+[ext_resource type="Script" path="res://src/enemies/controller/states/enemy_follow_state.gd" id="2_820wh"]
+[ext_resource type="Script" path="res://src/enemies/controller/states/enemy_idle_state.gd" id="3_fyvfl"]
+[ext_resource type="Script" path="res://src/enemies/controller/states/enemy_attack_state.gd" id="4_eqvpl"]
+
+[node name="EnemyController" type="Node" node_paths=PackedStringArray("start_state")]
+script = ExtResource("1_tk48v")
+start_state = NodePath("EnemyIdleState")
+
+[node name="EnemyFollowState" type="Node" parent="." node_paths=PackedStringArray("attack_state")]
+script = ExtResource("2_820wh")
+attack_state = NodePath("../EnemyAttackState")
+
+[node name="EnemyIdleState" type="Node" parent="." node_paths=PackedStringArray("move_state", "attack_state")]
+script = ExtResource("3_fyvfl")
+idle_time_seconds = null
+move_state = NodePath("../EnemyFollowState")
+attack_state = NodePath("../EnemyAttackState")
+
+[node name="EnemyAttackState" type="Node" parent="." node_paths=PackedStringArray("move_state")]
+script = ExtResource("4_eqvpl")
+move_state = NodePath("../EnemyFollowState")

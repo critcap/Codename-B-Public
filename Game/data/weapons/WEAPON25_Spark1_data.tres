@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/data_weapons.gd" id="1_4dxc6"]
+[ext_resource type="Texture2D" path="res://src/weapons/ATL_WEapons.tres" id="1_sijrf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rwxu"]
+atlas = ExtResource("1_sijrf")
+region = Rect2(0, 96, 48, 48)
+
+[resource]
+script = ExtResource("1_4dxc6")
+id = 25
+name = "spark"
+full_name = "Funken"
+description = "Ein kleiner Funken, der deine Feinde schockt und leichten Schaden verursacht."
+price = 0
+icon = SubResource("AtlasTexture_0rwxu")
+level = 1
+max_count = 1
+damage = 3
+targets = 2
+attack_range = 1500
+attack_speed = 1.2
+repeat = 0
+delay = 0.0
+count = 4
+pattern = 0
+_deviation = 0
+projectile_speed = 750
+size_multiplier = 0.5
+bounces = 999
+pierce = 999
+terrain_bounce = true
+return_to_player = false
+allow_shotgunning = false
+is_random_dir = true
+is_rotating = false
+rotation_speed = 1.0
+is_fixed = false
+animations = "spark"
+sprite_scale = 4.0
+hitbox_scale = 1.0
+desaturate = false
+color = Color(1, 1, 1, 1)

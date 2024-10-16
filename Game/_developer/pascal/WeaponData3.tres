@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/weapon_data.gd" id="1_rdnlx"]
+
+[resource]
+script = ExtResource("1_rdnlx")
+id = 0
+name = ""
+full_name = ""
+description = ""
+damage = 5
+attack_speed = 0.8
+cooldown = 0.0
+attack_range = 1000.0
+targets = 0
+count = 0
+is_fixed = false
+pattern = 0
+deviation = 0
+projectile_speed = 800
+size_multiplier = 1.0
+bounces = 3
+pierce = 0
+return_to_player = true

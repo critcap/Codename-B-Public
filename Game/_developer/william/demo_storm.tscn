@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bf2j2tam48q0b"]
+
+[ext_resource type="Shader" path="res://src/shared/shader/M_Character.gdshader" id="1_3ju25"]
+[ext_resource type="SpriteFrames" uid="uid://w08tbgmrg7f6" path="res://src/player/03_archer/SPR_Mage.tres" id="2_q0x4k"]
+[ext_resource type="PackedScene" uid="uid://ckkt4cta7bl6p" path="res://src/weapons/RotationWeaponBase.tscn" id="3_p30v2"]
+[ext_resource type="Resource" uid="uid://4j5wkpwpuslc" path="res://data/weapons/WEAPON16_Storm1_data.tres" id="4_exkxt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7d6cy"]
+shader = ExtResource("1_3ju25")
+shader_parameter/quanitity = null
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/danger_color = Color(1, 1, 1, 1)
+shader_parameter/is_rotation = false
+shader_parameter/is_danger = false
+shader_parameter/blink_frequency = 1.0
+shader_parameter/speed = 1.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+z_index = 1
+texture_filter = 1
+material = SubResource("ShaderMaterial_7d6cy")
+position = Vector2(0, -64)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("2_q0x4k")
+animation = &"north"
+autoplay = "north"
+
+[node name="RotationWeaponBase" parent="." instance=ExtResource("3_p30v2")]
+position = Vector2(0, 0)
+data = ExtResource("4_exkxt")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[editable path="RotationWeaponBase"]

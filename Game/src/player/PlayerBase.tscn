@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://src/core/entities/player_character.gd" id="1_ikp0k"]
+[ext_resource type="Script" path="res://src/core/components/weapon_rig.gd" id="5_otoau"]
+[ext_resource type="Script" path="res://src/core/components/player_health.gd" id="5_qdpbw"]
+[ext_resource type="Script" path="res://src/core/components/player_experience.gd" id="6_lw4qx"]
+[ext_resource type="PackedScene" path="res://src/player/controller/PlayerController.tscn" id="7_bpxy7"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 22.0227
+
+[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("experience", "weapon_rig", "health") groups=["Entities", "Player"]]
+z_index = 2
+z_as_relative = false
+script = ExtResource("1_ikp0k")
+experience = NodePath("PlayerExperience")
+weapon_rig = NodePath("WeaponRig")
+health = NodePath("Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
+shape = SubResource("1")
+
+[node name="WeaponRig" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -32)
+script = ExtResource("5_otoau")
+radius = 100
+max_weapons = 6
+
+[node name="CharacterController" parent="." node_paths=PackedStringArray("character") instance=ExtResource("7_bpxy7")]
+character = NodePath("..")
+
+[node name="PlayerExperience" type="Node" parent="."]
+script = ExtResource("6_lw4qx")
+
+[node name="Health" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_qdpbw")

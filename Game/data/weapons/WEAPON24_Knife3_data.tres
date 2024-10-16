@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/data_weapons.gd" id="1_r0bqc"]
+[ext_resource type="Texture2D" path="res://src/weapons/ATL_WEapons.tres" id="1_vs2wi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4aod"]
+atlas = ExtResource("1_vs2wi")
+region = Rect2(192, 48, 48, 48)
+
+[resource]
+script = ExtResource("1_r0bqc")
+id = 24
+name = "knife"
+full_name = "Wurfmesser"
+description = "Ein tödliches Wurfmesser, das dein Ziel durchbohrt und maximalen Schaden anrichtet."
+price = 0
+icon = SubResource("AtlasTexture_g4aod")
+level = 3
+max_count = 1
+damage = 7
+targets = 1
+attack_range = 400
+attack_speed = 0.6
+repeat = 0
+delay = 0.0
+count = 3
+pattern = 0
+_deviation = 0
+projectile_speed = 800
+size_multiplier = 1.0
+bounces = 3
+pierce = 1
+terrain_bounce = false
+return_to_player = false
+allow_shotgunning = false
+is_random_dir = false
+is_rotating = true
+rotation_speed = 12.0
+is_fixed = true
+animations = "dagger"
+sprite_scale = 4.0
+hitbox_scale = 1.0
+desaturate = false
+color = Color(1, 1, 1, 1)

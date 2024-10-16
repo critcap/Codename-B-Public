@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/core/entities/weapon.gd" id="1_ohoea"]
+[ext_resource type="AudioStream" path="res://_developer/_sound/sfx/SFX_MI_SFX 21.wav" id="2_bbe0c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y1gmp"]
+radius = 843.534
+
+[node name="WeaponBase" type="Area2D" node_paths=PackedStringArray("aim_range", "audio_player") groups=["Entities"]]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_ohoea")
+aim_range = NodePath("Range")
+audio_player = NodePath("Sfx")
+
+[node name="Range" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_y1gmp")
+
+[node name="RotationPoint" type="Marker2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Reload" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.1
+one_shot = true
+
+[node name="Delay" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.1
+one_shot = true
+
+[node name="Sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_bbe0c")
+bus = &"Sfx"
+
+[connection signal="timeout" from="Reload" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Delay" to="." method="_on_timer_timeout"]

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="SpawnTable" load_steps=13 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/spawn_table.gd" id="1_dnfie"]
+[ext_resource type="Resource" path="res://data/spawns/data_waves/Wave_1.tres" id="2_vb6ja"]
+[ext_resource type="Resource" path="res://data/spawns/data_waves/Wave_2.tres" id="3_i8s6l"]
+[ext_resource type="Resource" path="res://data/spawns/data_waves/Wave_3.tres" id="4_0rboe"]
+[ext_resource type="Resource" path="res://data/spawns/data_waves/Wave_4.tres" id="5_ahfnk"]
+[ext_resource type="Resource" path="res://data/spawns/data_waves/Wave_5.tres" id="6_lgf0u"]
+[ext_resource type="Resource" path="res://data/spawns/data_waves/Wave_6.tres" id="7_44wpa"]
+[ext_resource type="Resource" path="res://data/spawns/data_waves/Wave_7.tres" id="8_i0y5n"]
+[ext_resource type="Resource" path="res://data/spawns/data_waves/Wave_8.tres" id="9_44hb5"]
+[ext_resource type="Resource" path="res://data/spawns/data_waves/Wave_9.tres" id="10_7xnpv"]
+[ext_resource type="Resource" path="res://data/spawns/data_waves/Wave_10.tres" id="11_84mva"]
+[ext_resource type="Resource" path="res://data/spawns/data_waves/Wave_11.tres" id="12_js1dh"]
+
+[resource]
+script = ExtResource("1_dnfie")
+duration = 0.0
+timeline = Array[Resource("res://src/core/resources/data_waves.gd")]([ExtResource("2_vb6ja"), ExtResource("3_i8s6l"), ExtResource("4_0rboe"), ExtResource("5_ahfnk"), ExtResource("6_lgf0u"), ExtResource("7_44wpa"), ExtResource("8_i0y5n"), ExtResource("9_44hb5"), ExtResource("10_7xnpv"), ExtResource("11_84mva"), ExtResource("12_js1dh"), null])

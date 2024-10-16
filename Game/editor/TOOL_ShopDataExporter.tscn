@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://editor/shop_data_exporter.gd" id="1_6j41q"]
+
+[node name="ToolShopDataExporter" type="Node"]
+script = ExtResource("1_6j41q")
+target_directory = "res://build"

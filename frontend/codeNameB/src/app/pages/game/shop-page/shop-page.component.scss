@@ -1,0 +1,203 @@
+@import "../../../../assets/styles/vars";
+
+section {
+  width: 100vw;
+
+  .shop-wrapper {
+    padding: $space-xs 5%;
+
+    h2 {
+      color: $white;
+      margin: $space-l 0 $space-m 0;
+      text-decoration: underline;
+      font-size: $hugeFontSize;
+    }
+
+    .intro-text {
+      color: $white;
+      font-size: $defaultFontSize;
+      margin-bottom: $space-l;
+    }
+
+    h3 {
+      color: $white;
+      margin: $space-xs 0;
+      text-decoration: underline;
+      font-size: $largeFontSize;
+    }
+
+    .shop {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $space-s;
+
+      h2 {
+        margin: 0 !important;
+        line-height: 5rem;
+      }
+
+      .category {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        column-gap: $space-m;
+        row-gap: $space-xl;
+        padding-bottom: $space-l;
+
+        &::after {
+          content: "";
+          flex: 0 0 0;
+          flex-grow: 1;
+        }
+
+        .item {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          color: $black;
+          gap: $space-s;
+          min-width: 15rem;
+          flex: 0 0 18%;
+          border: 1px solid white;
+          padding-bottom: $space-xs;
+
+          .block {
+            display: none;
+          }
+
+          &.locked .block {
+            display: grid !important;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(4px) brightness(40%);
+            z-index: 1;
+
+            img {
+              width: 100%;
+              height: auto;
+            }
+          }
+
+          .presentation {
+            display: flex;
+            flex-direction: column;
+            gap: $space-s;
+            padding: $space-xs;
+
+            img {
+              aspect-ratio: 1 / 1;
+              width: 100%;
+              height: auto;
+              border-radius: 50%;
+            }
+
+            .data {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              p {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                color: $white;
+                margin: 0;
+                text-align: center;
+
+                & > mat-icon {
+                  transform: scale(0.75);
+                }
+              }
+            }
+
+            .description {
+              color: $white;
+            }
+          }
+
+          .buy {
+            width: 80%;
+            max-width: 15rem;
+            height: 2rem;
+            border: none;
+            border-radius: 4px;
+            color: $white;
+            background-color: $primaryColor;
+          }
+
+          .progress-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80%;
+            max-width: 15rem;
+            height: 2rem;
+            border: none;
+            border-radius: 4px;
+            color: $white;
+            background-color: $black;
+
+            .bar {
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 100%;
+              width: 0;
+              background: rgb(0, 212, 217);
+              background: linear-gradient(
+                90deg,
+                rgba(0, 212, 217, 1) 0%,
+                rgba(0, 26, 156, 1) 35%,
+                rgba(69, 0, 98, 1) 100%
+              );
+              transition: width 0.5s ease;
+            }
+
+            .bar-text {
+              position: absolute;
+              height: 100%;
+              top: 0;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              margin: auto;
+              background: none !important;
+              width: fit-content;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+
+            .bar,
+            .bar-text {
+              pointer-events: none;
+            }
+          }
+        }
+      }
+    }
+
+    .currency {
+      position: fixed;
+      color: $white;
+      bottom: $space-s;
+      right: $space-m;
+      background-color: $bitcoinColor;
+      border-radius: 12px;
+      z-index: 1;
+
+      p {
+        margin: 0;
+        padding: $space-xs;
+      }
+    }
+  }
+}

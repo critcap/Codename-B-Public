@@ -1,0 +1,72 @@
+[gd_scene load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://src/core/game/game.gd" id="1_univ5"]
+[ext_resource type="Script" path="res://src/core/systems/player_system.gd" id="3_argah"]
+[ext_resource type="Script" path="res://src/core/systems/damage_system.gd" id="4_g3mmu"]
+[ext_resource type="Script" path="res://src/core/systems/victory_system.gd" id="5_ays72"]
+[ext_resource type="Script" path="res://src/core/systems/death_system.gd" id="6_b8e7c"]
+[ext_resource type="PackedScene" path="res://_developer/william/scenes/enemy_spawner.tscn" id="7_jdeil"]
+[ext_resource type="Script" path="res://src/core/components/projectile_container.gd" id="8_5ejjt"]
+[ext_resource type="Script" path="res://src/core/common/smoother.gd" id="9_w3q7v"]
+[ext_resource type="PackedScene" path="res://src/maps/Map_01.tscn" id="10_g127y"]
+[ext_resource type="PackedScene" path="res://src/player/components/CameraRig.tscn" id="11_vfwsw"]
+[ext_resource type="PackedScene" path="res://src/game/player_hud/UI_RoundTimer.tscn" id="12_vmoxf"]
+[ext_resource type="PackedScene" path="res://src/game/player_hud/UI_PlayerHud.tscn" id="13_k2h6m"]
+[ext_resource type="PackedScene" path="res://src/game/pause_menu/UI_PauseMenu.tscn" id="14_m07eo"]
+[ext_resource type="PackedScene" path="res://src/game/gameover_screen/UI_GameoverScreen.tscn" id="15_r16ka"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_univ5")
+
+[node name="PauseContainer" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="PlayerSystem" type="Node" parent="PauseContainer"]
+script = ExtResource("3_argah")
+
+[node name="DamageSystem" type="Node" parent="PauseContainer"]
+script = ExtResource("4_g3mmu")
+
+[node name="VictorySystem" type="Node" parent="PauseContainer"]
+script = ExtResource("5_ays72")
+
+[node name="DeathSystem" type="Node" parent="PauseContainer"]
+script = ExtResource("6_b8e7c")
+
+[node name="RoundTimer" type="Timer" parent="PauseContainer"]
+unique_name_in_owner = true
+
+[node name="EnemySystem" parent="PauseContainer" node_paths=PackedStringArray("container") instance=ExtResource("7_jdeil")]
+container = NodePath("../Map")
+
+[node name="ProjectileContainer" type="Node2D" parent="PauseContainer"]
+script = ExtResource("8_5ejjt")
+
+[node name="Smoother" type="Node" parent="PauseContainer/ProjectileContainer"]
+script = ExtResource("9_w3q7v")
+smooth_parent = false
+recursive = false
+
+[node name="Map" parent="PauseContainer" instance=ExtResource("10_g127y")]
+unique_name_in_owner = true
+
+[node name="CameraRig" parent="PauseContainer" instance=ExtResource("11_vfwsw")]
+unique_name_in_owner = true
+
+[node name="GUI" type="CanvasLayer" parent="PauseContainer"]
+
+[node name="RoundTimerDisplay" parent="PauseContainer/GUI" instance=ExtResource("12_vmoxf")]
+
+[node name="PlayerHud" parent="PauseContainer/GUI" instance=ExtResource("13_k2h6m")]
+
+[node name="MenuLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 2
+
+[node name="PauseMenu" parent="MenuLayer" instance=ExtResource("14_m07eo")]
+visible = false
+
+[node name="DeathScreen" parent="MenuLayer" instance=ExtResource("15_r16ka")]
+visible = false
+
+[connection signal="gameover_processed" from="MenuLayer/DeathScreen" to="." method="_on_death_screen_gameover_processed"]

@@ -1,0 +1,24 @@
+keys,en,de
+TEST,This is a test,Das ist ein Test
+GAMEOVER_MESSAGE,Gameover!,Spiel verloren!
+GAMEWON_MESSAGE,Victory!,Spiel gewonnen!
+PAUSE_TITLE,Paused,Pausiert
+MENU_TITLE,Menu,Menü
+MUSIC_VOLUME,Music Volume,Musik Lautstärke
+SFX_VOLUME,Sfx Volume,Effekt Lautstärke
+SAVE,Save,Speichern
+CANCEL,Cancel,Abbrechen
+BEGINNER,Beginner,Anfänger
+NORMAL,Normal,Standard
+HARD,Hard,Schwer
+INSANE,Insane,Extrem
+BALLERN,CodenameB,CodenameB
+END_GAME,End Game,Spiel beenden
+RESTART_GAME,Restart Game,Spiel neustarten
+CONTINUE_GAME,Continue Game,Spiel fortsetzen
+SETTINGS_MANUAL_AIM,Activate manual aiming,Manuelles Zielen aktivieren
+MANUAL_AIM_ACTIVE,Manual aiming active,Manuelles Zielen aktiv
+LOADING_ITEMS,Loading items,Lade Items
+LOADING_WEAPONS,Loading weapons,Lade Waffen
+LOADING_MAP,Loading map,Lade Arena
+LOADING_CHARACTERS,Loading characters,Lade Spieler Charaktere

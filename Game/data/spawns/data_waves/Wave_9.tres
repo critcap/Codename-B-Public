@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SpawnWave" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/data_waves.gd" id="1_2omtv"]
+[ext_resource type="Resource" path="res://data/spawns/data_spawns/WAV9_Cobra_D2.tres" id="2_cpc4x"]
+[ext_resource type="Resource" path="res://data/spawns/data_spawns/WAV9_Cobra_D4.tres" id="3_ltkvw"]
+[ext_resource type="Resource" path="res://data/spawns/data_spawns/WAV9_Scorpion_D1.tres" id="4_sqcn8"]
+[ext_resource type="Resource" path="res://data/spawns/data_spawns/WAV9_Snake_D1.tres" id="5_e1081"]
+[ext_resource type="Resource" path="res://data/spawns/data_spawns/WAV9_Werewolf_D1.tres" id="6_3run6"]
+
+[resource]
+script = ExtResource("1_2omtv")
+duration = 60
+transition = 10
+sequences = Array[Resource("res://src/core/resources/data_spawns.gd")]([ExtResource("2_cpc4x"), ExtResource("3_ltkvw"), ExtResource("4_sqcn8"), ExtResource("5_e1081"), ExtResource("6_3run6")])
+is_enabled = true

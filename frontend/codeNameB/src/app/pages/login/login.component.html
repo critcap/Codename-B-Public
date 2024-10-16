@@ -1,0 +1,22 @@
+<section>
+  <h2>Anmeldung</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmitForm()">
+    <label for="email" id="l_email">Email:</label>
+    <input
+      type="email"
+      id="email"
+      formControlName="email"
+      placeholder="max.mustermann@gmail.com"
+    />
+    <label for="password" id="l_password">Password:</label>
+    <input
+      type="password"
+      id="password"
+      formControlName="password"
+      placeholder="Passwort"
+    />
+    <button id="submit" type="submit"><strong>Anmelden</strong></button>
+  </form>
+  <a id="forgot-password" href="/forgot-password">Passwort vergessen</a>
+  <app-loading-screen [show]="loading"></app-loading-screen>
+</section>

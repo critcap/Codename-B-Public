@@ -1,0 +1,184 @@
+<section>
+  <div class="shop-wrapper">
+    <h2>Item-Shop</h2>
+    <p class="intro-text">
+      Hey, willkommen in unseren Itemshop!<br />
+      Hier kannst du dir nützliche Dinge für dein Gamingerlebnis einkaufen! Viel
+      Spaß beim zocken!
+    </p>
+    <ul class="shop">
+      <h3>Charactere</h3>
+      <div class="category">
+        <li
+          *ngFor="let item of characters"
+          class="item"
+          [ngClass]="itemIsAvailable(item.id) ? '' : 'locked'"
+        >
+          <div class="block">
+            <img alt="Sold out" src="assets/images/sold-out.png" />
+          </div>
+          <div class="presentation">
+            <img
+              [alt]="item.name"
+              [src]="'assets/items'.concat(item.imageName)"
+            />
+            <div class="data">
+              <p>
+                <span>{{ item.name }}</span>
+              </p>
+              <p>
+                <strong>{{ calculatePrice(item) }}</strong>
+                <mat-icon
+                  aria-hidden="false"
+                  aria-label="Example home icon"
+                  fontIcon="currency_bitcoin"
+                ></mat-icon>
+              </p>
+            </div>
+            <p class="description">
+              {{ item.description }}
+            </p>
+          </div>
+          <button
+            class="buy"
+            (click)="buyItem(item)"
+            *ngIf="!itemIsProgressable(item); else isProgressable"
+          >
+            Kaufen
+          </button>
+          <ng-template #isProgressable>
+            <div class="progress-wrapper">
+              <div
+                class="bar"
+                [style.width.%]="calcBuyPercentage(item.id, item.maxBuyCount)"
+              ></div>
+              <div class="bar-text">
+                <span
+                  >{{ getAmountOfItems(item.id) }}/{{ item.maxBuyCount }}</span
+                >
+              </div>
+            </div>
+            <button class="buy" (click)="buyItem(item)">Kaufen</button>
+          </ng-template>
+        </li>
+      </div>
+
+      <h3>Waffen</h3>
+      <div class="category">
+        <li
+          *ngFor="let item of weapons"
+          class="item"
+          [ngClass]="itemIsAvailable(item.id) ? '' : 'locked'"
+        >
+          <div class="block">
+            <img alt="Sold out" src="assets/images/sold-out.png" />
+          </div>
+          <div class="presentation">
+            <img
+              [alt]="item.name"
+              [src]="'assets/items'.concat(item.imageName)"
+            />
+            <div class="data">
+              <p>
+                <span>{{ item.name }}</span>
+              </p>
+              <p>
+                <strong>{{ calculatePrice(item) }}</strong>
+                <mat-icon
+                  aria-hidden="false"
+                  aria-label="Example home icon"
+                  fontIcon="currency_bitcoin"
+                ></mat-icon>
+              </p>
+            </div>
+            <p class="description">
+              {{ item.description }}
+            </p>
+          </div>
+          <button
+            class="buy"
+            (click)="buyItem(item)"
+            *ngIf="!itemIsProgressable(item); else isProgressable"
+          >
+            Kaufen
+          </button>
+          <ng-template #isProgressable>
+            <div class="progress-wrapper">
+              <div
+                class="bar"
+                [style.width.%]="calcBuyPercentage(item.id, item.maxBuyCount)"
+              ></div>
+              <div class="bar-text">
+                <span
+                  >{{ getAmountOfItems(item.id) }}/{{ item.maxBuyCount }}</span
+                >
+              </div>
+            </div>
+            <button class="buy" (click)="buyItem(item)">Kaufen</button>
+          </ng-template>
+        </li>
+      </div>
+
+      <h3>Stats</h3>
+      <div class="category">
+        <li
+          *ngFor="let item of stats"
+          class="item"
+          [ngClass]="itemIsAvailable(item.id) ? '' : 'locked'"
+        >
+          <div class="block">
+            <img alt="Sold out" src="assets/images/sold-out.png" />
+          </div>
+          <div class="presentation">
+            <img
+              [alt]="item.name"
+              [src]="'assets/items'.concat(item.imageName)"
+            />
+            <div class="data">
+              <p>
+                <span>{{ item.name }}</span>
+              </p>
+              <p>
+                <strong>{{ calculatePrice(item) }}</strong>
+                <mat-icon
+                  aria-hidden="false"
+                  aria-label="Example home icon"
+                  fontIcon="currency_bitcoin"
+                ></mat-icon>
+              </p>
+            </div>
+            <p class="description">
+              {{ item.description }}
+            </p>
+          </div>
+          <button
+            class="buy"
+            (click)="buyItem(item)"
+            *ngIf="!itemIsProgressable(item); else isProgressable"
+          >
+            Kaufen
+          </button>
+          <ng-template #isProgressable>
+            <div class="progress-wrapper">
+              <div
+                class="bar"
+                [style.width.%]="calcBuyPercentage(item.id, item.maxBuyCount)"
+              ></div>
+              <div class="bar-text">
+                <span
+                  >{{ getAmountOfItems(item.id) }}/{{ item.maxBuyCount }}</span
+                >
+              </div>
+            </div>
+            <button class="buy" (click)="buyItem(item)">Kaufen</button>
+          </ng-template>
+        </li>
+      </div>
+    </ul>
+    <div class="currency">
+      <p>
+        Sie haben <strong>{{ user!.inventory.credits }}</strong> B-Coins
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="PackedScene" path="res://src/enemies/EnemyBase.tscn" id="1_nj0mr"]
+[ext_resource type="PackedScene" path="res://src/enemies/components/EnemyCharacterAnimationRig.tscn" id="2_p28cg"]
+[ext_resource type="Shader" path="res://src/shared/shader/M_Character.gdshader" id="3_kdyxb"]
+[ext_resource type="SpriteFrames" path="res://src/enemies/10_goblin/SPR_Goblin.tres" id="4_8xsv2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xflva"]
+resource_local_to_scene = true
+shader = ExtResource("3_kdyxb")
+shader_parameter/quanitity = null
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/danger_color = Color(1, 1, 1, 1)
+shader_parameter/is_rotation = false
+shader_parameter/is_danger = false
+shader_parameter/blink_frequency = 1.0
+shader_parameter/speed = 1.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nb8kv"]
+radius = 16.0
+height = 60.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_se074"]
+radius = 25.0
+
+[node name="EnemyBase" node_paths=PackedStringArray("animation_rig") instance=ExtResource("1_nj0mr")]
+animation_rig = NodePath("EnemyCharacterAnimationRig")
+
+[node name="EnemyCharacterAnimationRig" parent="." index="0" instance=ExtResource("2_p28cg")]
+
+[node name="AnimatedSprite" parent="EnemyCharacterAnimationRig/Pivot" index="0"]
+material = SubResource("ShaderMaterial_xflva")
+position = Vector2(-2, -64)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("4_8xsv2")
+animation = &"east"
+
+[node name="Enemy Collis" parent="." index="1"]
+visible = true
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_nb8kv")
+
+[node name="EnemyController" parent="." index="4" node_paths=PackedStringArray("start_state", "character")]
+start_state = NodePath("EnemyIdleState")
+character = NodePath("..")
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("CircleShape2D_se074")
+
+[node name="Debug" parent="." index="6" node_paths=PackedStringArray("base")]
+base = NodePath("..")
+
+[editable path="EnemyCharacterAnimationRig"]

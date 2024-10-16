@@ -1,0 +1,75 @@
+<section>
+  <div class="selection">
+    <h2>Character auswählen</h2>
+    <div class="characters">
+      <div
+        class="char"
+        *ngFor="let char of availableCharacters"
+        [ngClass]="{ selected: selectedCharacter.id == char.id }"
+      >
+        <h3>{{ char.name }}</h3>
+        <p>{{ char.description }}</p>
+        <img [alt]="char.name" [src]="'assets/items' + char.imageName" />
+        <button
+          (click)="setCharacter(char.id)"
+          [disabled]="selectedCharacter.id == char.id"
+        >
+          <p *ngIf="selectedCharacter.id != char.id; else selected">
+            Auswählen
+          </p>
+          <ng-template #selected>
+            <p>Ausgewählt</p>
+          </ng-template>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="selection">
+    <h2>Map auswählen</h2>
+    <div class="maps">
+      <div
+        class="map"
+        *ngFor="let map of defaults.maps"
+        [ngClass]="{ selected: selectedMap.id == map.id }"
+      >
+        <h3>{{ map.name }}</h3>
+        <img [alt]="map.name" [src]="'assets/items' + map.imageName" />
+        <button (click)="setMap(map.id)" [disabled]="selectedMap.id == map.id">
+          <p *ngIf="selectedMap.id != map.id; else selected">Auswählen</p>
+          <ng-template #selected>
+            <p>Ausgewählt</p>
+          </ng-template>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="selection">
+    <h2>Schwierigkeit auswählen</h2>
+    <div class="difficulties">
+      <div
+        class="difficulty"
+        *ngFor="let difficulty of defaults.difficulties"
+        [ngClass]="{
+          selected: selectedDifficulty.id == difficulty.id,
+        }"
+      >
+        <h3>{{ difficulty.name }}</h3>
+        <button
+          (click)="setDifficulty(difficulty.id)"
+          [disabled]="selectedDifficulty.id == difficulty.id"
+          [className]="difficulty.identifier"
+        >
+          <img
+            [alt]="difficulty.name"
+            [src]="
+              'assets/difficulties/'.concat(difficulty.identifier + '.webp')
+            "
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+  <button class="submit" type="button" (click)="submitSelectedData()">
+    Loslegen
+  </button>
+</section>

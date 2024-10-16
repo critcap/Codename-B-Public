@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SpawnPattern" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/spawn_pattern.gd" id="1_2gfjs"]
+
+[resource]
+script = ExtResource("1_2gfjs")
+offsets = Array[Vector2]([Vector2(-160.254, -190.412), Vector2(-38.6399, -133.383), Vector2(-25.8729, 113.703), Vector2(59.7201, 78.4903), Vector2(-51.2356, 34.0466), Vector2(197.159, -59.4974), Vector2(75.8798, -230.154), Vector2(-170.101, 85.9913), Vector2(168.984, 120.063), Vector2(36.1977, -65.6529), Vector2(-109.559, 205.502), Vector2(-132.439, -37.8505), Vector2(-76.0495, -214.406), Vector2(24.0645, 8.83879), Vector2(-150.794, -112.585), Vector2(165.305, -151.497), Vector2(137.999, 20.9151), Vector2(-220.355, -47.434), Vector2(93.9753, -116.332), Vector2(143.529, 191.42), Vector2(59.2243, 215.424), Vector2(-240.619, 55.255), Vector2(-35.9289, -43.2046), Vector2(228.17, 9.86902), Vector2(-33.5102, 195.615), Vector2(7.6297, -196.868)])
+radius = 250
+random_offset = false
+is_absolute_position = false

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3]
+
+[ext_resource type="Resource" path="res://src/enemies/common/EnemyAttack_Melee.tres" id="1_48plw"]
+[ext_resource type="Script" path="res://src/core/resources/data_enemies.gd" id="1_bxy5d"]
+
+[resource]
+script = ExtResource("1_bxy5d")
+id = 10.0
+code = "helmet"
+name = "Oceanman"
+description = ""
+health = 8.0
+health_per_wave = 3.0
+speed = 225.0
+max_speed = 275.0
+acceleration = 0.0
+damage = 1.0
+damage_per_wave = 1.0
+experience = 1.0
+drop_change = 0.01
+rare_drop = 0.01
+scene = "res://src/enemies/11_oceanman/EC_Oceanman.tscn"
+attack_data = ExtResource("1_48plw")
+movement_type = 0

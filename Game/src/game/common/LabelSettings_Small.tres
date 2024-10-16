@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://1oejd171fmod"]
+
+[ext_resource type="FontFile" uid="uid://c8267p2qqiqtb" path="res://src/game/common/Font_Compass.ttf" id="1_jo6ek"]
+
+[resource]
+font = ExtResource("1_jo6ek")
+shadow_size = 0

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/data_enemies.gd" id="1_c88r2"]
+[ext_resource type="Resource" path="res://src/enemies/common/EnemyAttack_Melee.tres" id="1_ninw5"]
+
+[resource]
+script = ExtResource("1_c88r2")
+id = 18.0
+code = "charger_boss"
+name = "Boss_Gryphon"
+description = ""
+health = 1.0
+health_per_wave = 750.0
+speed = 250.0
+max_speed = 250.0
+acceleration = 0.0
+damage = 0.0
+damage_per_wave = 1.5
+experience = 10.0
+drop_change = 1.0
+rare_drop = 1.0
+scene = "res://src/enemies/19_boss_gryphon/EC_Boss_Gryphon.tscn"
+attack_data = ExtResource("1_ninw5")
+movement_type = 0

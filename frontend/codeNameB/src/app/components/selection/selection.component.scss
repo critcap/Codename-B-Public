@@ -1,0 +1,153 @@
+@import "../../../assets/styles/vars";
+@import "../../../assets/styles/difficulty";
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: $space-m;
+  color: $white;
+  padding: $space-s;
+
+  .selection {
+    display: flex;
+    flex-direction: column;
+
+    img {
+      image-rendering: pixelated;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: crisp-edges;
+    }
+
+    .characters {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: $space-s;
+
+      .char {
+        display: flex;
+        flex-direction: column;
+        width: 15rem;
+        height: 37rem;
+        border: 1px solid $white;
+        padding: $space-xs;
+
+        &.selected {
+          border: 2px solid $secondaryColor;
+        }
+
+        p {
+          margin: 0;
+          flex-grow: 1;
+        }
+
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          color: $white;
+          background: $primaryColor;
+          border: none;
+          border: 4px solid $white;
+
+          p {
+            padding: $space-xs;
+          }
+        }
+      }
+    }
+
+    .maps {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      .map {
+        display: flex;
+        flex-direction: column;
+        width: 15rem;
+        height: 25rem;
+        border: 1px solid $white;
+        padding: $space-xs;
+
+        &.selected {
+          border: 2px solid $secondaryColor;
+        }
+
+        p {
+          margin: 0;
+        }
+
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          color: $white;
+          background: $primaryColor;
+          border: none;
+          border: 4px solid $white;
+
+          p {
+            padding: $space-xs;
+          }
+        }
+      }
+    }
+
+    .difficulties {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: $space-s;
+
+      .difficulty {
+        display: flex;
+        flex-direction: column;
+        width: 10rem;
+        border: 1px solid $white;
+        padding: $space-xs;
+
+        &.selected {
+          border: 2px solid $secondaryColor;
+        }
+
+        h3 {
+          margin: 0;
+          padding: 0;
+          text-align: center;
+        }
+
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: $space-xs;
+          background: none;
+          border: none;
+          color: $white;
+
+          img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+            aspect-ratio: 1 / 1;
+            image-rendering: auto;
+          }
+
+          p {
+            margin: 0;
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .submit {
+    padding: $space-xs;
+    background: none;
+    color: $white;
+    border: 2px solid $secondaryColor;
+  }
+}

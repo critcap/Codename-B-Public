@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/modifier_data.gd" id="1_vm106"]
+[ext_resource type="Script" path="res://src/core/resources/data_items.gd" id="1_vqs47"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gn8eg"]
+load_path = "res://.godot/imported/T_Icons.png-c4904b97a3031a24c6ca8c700cb1fa71.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvvbe"]
+atlas = SubResource("CompressedTexture2D_gn8eg")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="Resource" id="Resource_vi74k"]
+script = ExtResource("1_vm106")
+type = 1
+mod = 1
+value = 3.0
+is_percentage = false
+
+[resource]
+script = ExtResource("1_vqs47")
+id = 5
+name = &"max_health"
+full_name = "Lebenskraft"
+description = "Erhöht die maximale Gesundheit um {val}"
+rarity = 0
+price = 100
+max_count = 6
+icon = SubResource("AtlasTexture_vvvbe")
+modifiers = Array[ExtResource("1_vm106")]([SubResource("Resource_vi74k")])

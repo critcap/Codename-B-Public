@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/data_weapons.gd" id="1_m3utp"]
+[ext_resource type="Texture2D" path="res://src/weapons/ATL_WEapons.tres" id="1_rmi7x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61qhx"]
+atlas = ExtResource("1_rmi7x")
+region = Rect2(240, 48, 48, 48)
+
+[resource]
+script = ExtResource("1_m3utp")
+id = 8
+name = "icebolt"
+full_name = "Eislanze"
+description = "Eine größere Eislanze, die mehrere Feinde trifft und erheblichen Schaden zufügt."
+price = 0
+icon = SubResource("AtlasTexture_61qhx")
+level = 2
+max_count = 1
+damage = 4
+targets = 1
+attack_range = 650
+attack_speed = 0.8
+repeat = 0
+delay = 0.1
+count = 6
+pattern = 0
+_deviation = 0
+projectile_speed = 1000
+size_multiplier = 1.0
+bounces = 0
+pierce = 2
+terrain_bounce = false
+return_to_player = false
+allow_shotgunning = false
+is_random_dir = false
+is_rotating = false
+rotation_speed = 1.0
+is_fixed = false
+animations = "ice"
+sprite_scale = 4.0
+hitbox_scale = 1.0
+desaturate = false
+color = Color(1, 1, 1, 1)

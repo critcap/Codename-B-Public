@@ -1,0 +1,159 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/app/web/debug_lobby_menu.gd" id="1_0s8iy"]
+[ext_resource type="PackedScene" path="res://src/shared/user_controls/UC_bg.tscn" id="2_duu68"]
+[ext_resource type="FontFile" path="res://src/game/common/Font_Compass.ttf" id="2_pbm3k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fe1so"]
+font = ExtResource("2_pbm3k")
+font_size = 128
+outline_size = 32
+outline_color = Color(0.0646965, 0.0646965, 0.0646965, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_34ojw"]
+font = ExtResource("2_pbm3k")
+font_size = 32
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[node name="LobbyScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0s8iy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.0117647, 0.0823529, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 107.0
+offset_right = 20.0
+offset_bottom = 130.0
+grow_horizontal = 2
+text = "Codename-B"
+label_settings = SubResource("LabelSettings_fe1so")
+horizontal_alignment = 1
+
+[node name="Status" type="Label" parent="ColorRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.0
+offset_top = 124.0
+offset_right = 166.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Warten auf Spiel Session"
+label_settings = SubResource("LabelSettings_34ojw")
+
+[node name="Bg" parent="." instance=ExtResource("2_duu68")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="BtnForceStart" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = 170.0
+offset_right = 72.0
+offset_bottom = 201.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Force Game Start"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 377.0
+grow_vertical = 2
+
+[node name="SessionIdLabel" type="Label" parent="VBoxContainer" groups=["DebugInfo"]]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Connected"
+
+[node name="TokenLabel" type="Label" parent="VBoxContainer" groups=["DebugInfo"]]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Connected"
+
+[node name="ConnectionStatusLabel" type="Label" parent="VBoxContainer" groups=["DebugInfo"]]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Socket Status: Closed"
+
+[node name="ConnectionTestLabel" type="Label" parent="VBoxContainer" groups=["DebugInfo"]]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Connected"
+
+[node name="BridgeStatusLabel" type="Label" parent="VBoxContainer" groups=["DebugInfo"]]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+text = "Connected"
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 203.0
+offset_right = 377.0
+grow_vertical = 2
+
+[node name="BtnConnect" type="Button" parent="Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Connect to websocket"
+
+[node name="BtnClose" type="Button" parent="Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Close websocket"
+
+[node name="BtnSend" type="Button" parent="Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Send"
+
+[node name="BtnBridge" type="Button" parent="Buttons"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+text = "Bridge
+"
+
+[node name="Label" type="Label" parent="Buttons"]
+layout_mode = 2

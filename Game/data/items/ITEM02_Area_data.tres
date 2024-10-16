@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/modifier_data.gd" id="1_hva5x"]
+[ext_resource type="Script" path="res://src/core/resources/data_items.gd" id="1_oj3wj"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gn8eg"]
+load_path = "res://.godot/imported/T_Icons.png-c4904b97a3031a24c6ca8c700cb1fa71.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34wjv"]
+atlas = SubResource("CompressedTexture2D_gn8eg")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="Resource" id="Resource_8g7gt"]
+script = ExtResource("1_hva5x")
+type = 11
+mod = 1
+value = 10.0
+is_percentage = true
+
+[resource]
+script = ExtResource("1_oj3wj")
+id = 2
+name = &"area"
+full_name = "Großes Kaliber"
+description = "Erhöht die Größe der Projektile um {val}%"
+rarity = 0
+price = 200
+max_count = 5
+icon = SubResource("AtlasTexture_34wjv")
+modifiers = Array[ExtResource("1_hva5x")]([SubResource("Resource_8g7gt")])

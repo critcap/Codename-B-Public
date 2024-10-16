@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://src/core/entities/bullet.gd" id="1_we5ek"]
+[ext_resource type="Texture2D" path="res://src/weapons/textures/SPR_Bullets.png" id="2_bx8fb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0r60v"]
+radius = 23.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yretc"]
+atlas = ExtResource("2_bx8fb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04pbv"]
+atlas = ExtResource("2_bx8fb")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yewra"]
+atlas = ExtResource("2_bx8fb")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k7v3"]
+atlas = ExtResource("2_bx8fb")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b080f"]
+atlas = ExtResource("2_bx8fb")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqy7r"]
+atlas = ExtResource("2_bx8fb")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m0hmp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yretc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04pbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yewra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k7v3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b080f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqy7r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BulletBase" type="Area2D"]
+top_level = true
+collision_layer = 0
+collision_mask = 3
+monitorable = false
+script = ExtResource("1_we5ek")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_0r60v")
+
+[node name="Projectile" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(0, -3)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_m0hmp")
+frame = 2

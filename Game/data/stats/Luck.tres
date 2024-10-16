@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="StatData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/stat_data.gd" id="2_48hce"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gn8eg"]
+load_path = "res://.godot/imported/T_Icons.png-c4904b97a3031a24c6ca8c700cb1fa71.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n31m3"]
+atlas = SubResource("CompressedTexture2D_gn8eg")
+region = Rect2(432, 0, 48, 48)
+
+[resource]
+script = ExtResource("2_48hce")
+_id = 12
+_name = &"Luck"
+_short_name = &"Luck"
+_description = "Chance for lucky●drops to occur"
+_hidden = false
+_negativ_is_good = false
+_value_cap = 100.0
+_icon = SubResource("AtlasTexture_n31m3")

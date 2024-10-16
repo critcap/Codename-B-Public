@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SpawnSequence" load_steps=4 format=3]
+
+[ext_resource type="Resource" path="res://data/enemies/01_Snake_data.tres" id="1_w837y"]
+[ext_resource type="Script" path="res://src/core/resources/data_spawns.gd" id="2_cx1pv"]
+[ext_resource type="Resource" path="res://src/enemies/patterns/SpawnPattern_Single.tres" id="2_t3frd"]
+
+[resource]
+script = ExtResource("2_cx1pv")
+entity = ExtResource("1_w837y")
+entity_name = "Snake"
+type = 0
+wave = 2
+difficulty = 1
+pattern = ExtResource("2_t3frd")
+delay = 1
+interval = 3
+interval_min = 0
+count = 3
+increase = 1
+is_enabled = true

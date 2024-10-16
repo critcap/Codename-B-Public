@@ -1,0 +1,64 @@
+services:
+  cod_db:
+    image: postgres
+    profiles:
+      - db
+      - backend
+    container_name: cod_db
+    environment:
+      POSTGRES_DB: cod_db
+      POSTGRES_USER: cod_user
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5432:5432"
+    volumes:
+      - database:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready", "-d", "db_prod"]
+      interval: 30s
+      timeout: 60s
+      retries: 5
+      start_period: 80s
+  
+  spring-app-dev:
+    build: ./Backend/codenameb
+    container_name: spring-app-dev
+    profiles:
+      - backend
+    ports:
+      - '8080:8080'
+    links:
+      - cod_db
+    depends_on:
+      cod_db:
+        condition: service_healthy
+
+  angular-app-dev:
+    build:
+      context: ./frontend/codeNameB
+      dockerfile: Dockerfile.dev
+    container_name: angular-app-dev
+    profiles:
+      - frontend-dev
+    ports:
+      - '4200:4200'
+    develop:
+      watch:
+        - action: sync
+          path: ./frontend/codeNameB/src
+          target: /app/frontend/src
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: package.json
+
+  godot-export:
+    build: /Game/
+    profiles:
+      - game-export
+    command: godot --headless --export-debug Main
+    volumes:
+      - /Backend/codenameb/src/main/resources/public/:/home/godot/project/build/
+
+volumes:
+  database:

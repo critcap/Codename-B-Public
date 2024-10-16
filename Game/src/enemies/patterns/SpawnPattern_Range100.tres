@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SpawnPattern" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/spawn_pattern.gd" id="1_kwwk4"]
+
+[resource]
+script = ExtResource("1_kwwk4")
+offsets = Array[Vector2]([Vector2(-57.3362, 52.6582), Vector2(45.1627, -55.6085), Vector2(-23.8721, -71.1993), Vector2(62.7297, 30.4463), Vector2(-39.3495, -13.0237), Vector2(-4.43873, 86.2264)])
+radius = 100
+random_offset = false
+is_absolute_position = false

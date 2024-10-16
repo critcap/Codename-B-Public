@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/player/components/player_character_animation_rig.gd" id="1_xkcvw"]
+[ext_resource type="Shader" path="res://src/shared/shader/M_Character.gdshader" id="2_vjmsi"]
+[ext_resource type="SpriteFrames" path="res://src/player/01_knight/SPR_Knight.tres" id="3_cdk37"]
+[ext_resource type="AnimationLibrary" path="res://src/player/animations/ALIB_PlayerCharacter.res" id="4_fomqq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7d6cy"]
+shader = ExtResource("2_vjmsi")
+shader_parameter/quanitity = null
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/danger_color = Color(1, 1, 1, 1)
+shader_parameter/is_rotation = false
+shader_parameter/is_danger = false
+shader_parameter/blink_frequency = 1.0
+shader_parameter/speed = 1.0
+
+[node name="PlayerCharacterAnimationRig" type="Node2D"]
+script = ExtResource("1_xkcvw")
+
+[node name="Pivot" type="Marker2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="Pivot"]
+unique_name_in_owner = true
+z_index = 1
+texture_filter = 1
+material = SubResource("ShaderMaterial_7d6cy")
+position = Vector2(0, -64)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("3_cdk37")
+animation = &"east"
+autoplay = "south"
+frame_progress = 0.396358
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+reset_on_save = false
+root_node = NodePath("../..")
+libraries = {
+"": ExtResource("4_fomqq")
+}

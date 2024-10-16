@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/modifier_data.gd" id="1_ao7sv"]
+[ext_resource type="Script" path="res://src/core/resources/data_items.gd" id="1_f14qk"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gn8eg"]
+load_path = "res://.godot/imported/T_Icons.png-c4904b97a3031a24c6ca8c700cb1fa71.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pd2n4"]
+atlas = SubResource("CompressedTexture2D_gn8eg")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="Resource" id="Resource_mgcrb"]
+script = ExtResource("1_ao7sv")
+type = 3
+mod = 1
+value = 1.0
+is_percentage = false
+
+[resource]
+script = ExtResource("1_f14qk")
+id = 3
+name = &"defense"
+full_name = "Festungswall"
+description = "Erhöht die Rüstung um {val}"
+rarity = 0
+price = 100
+max_count = 10
+icon = SubResource("AtlasTexture_pd2n4")
+modifiers = Array[ExtResource("1_ao7sv")]([SubResource("Resource_mgcrb")])

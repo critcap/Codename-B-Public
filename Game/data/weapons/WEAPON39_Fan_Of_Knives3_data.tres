@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/core/resources/data_weapons.gd" id="1_hfm5i"]
+[ext_resource type="Texture2D" path="res://src/weapons/ATL_WEapons.tres" id="1_k8m44"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k85tl"]
+atlas = ExtResource("1_k8m44")
+region = Rect2(48, 96, 48, 48)
+
+[resource]
+script = ExtResource("1_hfm5i")
+id = 39
+name = "fan_of_knives"
+full_name = "Messerfächer"
+description = "Ein massiver Messerfächer, der alle Feinde in seiner Reichweite trifft und maximalen Schaden anrichtet."
+price = 0
+icon = SubResource("AtlasTexture_k85tl")
+level = 3
+max_count = 1
+damage = 14
+targets = 1
+attack_range = 400
+attack_speed = 1.5
+repeat = 0
+delay = 0.25
+count = 16
+pattern = 2
+_deviation = 0
+projectile_speed = 800
+size_multiplier = 0.5
+bounces = 0
+pierce = 9
+terrain_bounce = false
+return_to_player = false
+allow_shotgunning = false
+is_random_dir = false
+is_rotating = true
+rotation_speed = 6.0
+is_fixed = true
+animations = "dagger"
+sprite_scale = 4.0
+hitbox_scale = 1.0
+desaturate = false
+color = Color(1, 1, 1, 1)

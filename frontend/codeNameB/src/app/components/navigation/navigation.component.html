@@ -1,0 +1,39 @@
+<nav>
+  <h1 class="headline">{{ currentRoute }}</h1>
+  <div class="navigation">
+    <ul class="nav-list" [ngClass]="{ open: isOpen }">
+      <button id="close" (click)="closeMobileNavigation()">
+        <img
+          alt="Schließen"
+          src="assets/icons/caret-right-fill.svg"
+          width="30"
+          height="30"
+        />
+      </button>
+      <li *ngFor="let route of currentRoutes">
+        <a
+          (click)="route.name === 'Logout' ? logout() : ''"
+          [routerLink]="route.name === 'Logout' ? '' : route.path"
+          [ngClass]="{ active: isCurrentRoute(route.path) }"
+        >
+          {{ route.name }}
+        </a>
+        <img
+          *ngIf="isCurrentRoute(route.path)"
+          alt="Controller"
+          src="assets/icons/controller.svg"
+        />
+      </li>
+    </ul>
+  </div>
+  <div
+    class="background-close"
+    [ngClass]="{ active: isOpen }"
+    (click)="closeMobileNavigation()"
+    (keyup.enter)="closeMobileNavigation()"
+    tabindex="0"
+  ></div>
+  <button id="open" (click)="openMobileNavigation()">
+    <img alt="Liste" src="assets/icons/list.svg" height="60" />
+  </button>
+</nav>
